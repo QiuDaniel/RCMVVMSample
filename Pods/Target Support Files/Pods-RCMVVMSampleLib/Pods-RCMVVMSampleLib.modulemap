@@ -1,0 +1,6 @@
+framework module Pods_RCMVVMSampleLib {
+  umbrella header "Pods-RCMVVMSampleLib-umbrella.h"
+
+  export *
+  module * { export * }
+}

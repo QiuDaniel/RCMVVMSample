@@ -1,0 +1,632 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		30D6ADF16608B26EA2768902 /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6697447C3ACDB55861B32C4A /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework */; };
+		D3F97B4D1F4EF531006F20FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B4C1F4EF531006F20FD /* AppDelegate.swift */; };
+		D3F97B521F4EF531006F20FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B501F4EF531006F20FD /* Main.storyboard */; };
+		D3F97B541F4EF531006F20FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B531F4EF531006F20FD /* Assets.xcassets */; };
+		D3F97B571F4EF531006F20FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B551F4EF531006F20FD /* LaunchScreen.storyboard */; };
+		D3F97B621F4EF531006F20FD /* RCMVVMSampleViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B611F4EF531006F20FD /* RCMVVMSampleViewTests.swift */; };
+		D3F97B6D1F4EF531006F20FD /* RCMVVMSampleViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B6C1F4EF531006F20FD /* RCMVVMSampleViewUITests.swift */; };
+		D3F97B7B1F4F0B3F006F20FD /* RCMVVMSampleLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F97B7A1F4F0B3F006F20FD /* RCMVVMSampleLib.framework */; };
+		D3F97B851F4F1069006F20FD /* itemsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B841F4F1069006F20FD /* itemsResponse.json */; };
+		D3F97BA61F504682006F20FD /* ItemListChangesetTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA51F504682006F20FD /* ItemListChangesetTableViewController.swift */; };
+		D3F97BA81F506519006F20FD /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA71F506519006F20FD /* ItemTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D3F97B5E1F4EF531006F20FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3F97B411F4EF531006F20FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3F97B481F4EF531006F20FD;
+			remoteInfo = RCMVVMSampleView;
+		};
+		D3F97B691F4EF531006F20FD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D3F97B411F4EF531006F20FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D3F97B481F4EF531006F20FD;
+			remoteInfo = RCMVVMSampleView;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6697447C3ACDB55861B32C4A /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCMVVMSampleLib_RCMVVMSampleView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		83729018D58DA2923EFDAADC /* Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RCMVVMSampleLib-RCMVVMSampleView/Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig"; sourceTree = "<group>"; };
+		D3F97B491F4EF531006F20FD /* RCMVVMSampleView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCMVVMSampleView.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F97B4C1F4EF531006F20FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D3F97B511F4EF531006F20FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		D3F97B531F4EF531006F20FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D3F97B561F4EF531006F20FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		D3F97B581F4EF531006F20FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F97B5D1F4EF531006F20FD /* RCMVVMSampleViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCMVVMSampleViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F97B611F4EF531006F20FD /* RCMVVMSampleViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCMVVMSampleViewTests.swift; sourceTree = "<group>"; };
+		D3F97B631F4EF531006F20FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F97B681F4EF531006F20FD /* RCMVVMSampleViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RCMVVMSampleViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		D3F97B6C1F4EF531006F20FD /* RCMVVMSampleViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RCMVVMSampleViewUITests.swift; sourceTree = "<group>"; };
+		D3F97B6E1F4EF531006F20FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3F97B7A1F4F0B3F006F20FD /* RCMVVMSampleLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RCMVVMSampleLib.framework; path = "../RCMVVMSampleLib/build/Debug-iphoneos/RCMVVMSampleLib.framework"; sourceTree = "<group>"; };
+		D3F97B841F4F1069006F20FD /* itemsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = itemsResponse.json; sourceTree = "<group>"; };
+		D3F97BA51F504682006F20FD /* ItemListChangesetTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetTableViewController.swift; sourceTree = "<group>"; };
+		D3F97BA71F506519006F20FD /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		DBC065B185DD8B3992DDF326 /* Pods-RCMVVMSampleLib-RCMVVMSampleView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCMVVMSampleLib-RCMVVMSampleView.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RCMVVMSampleLib-RCMVVMSampleView/Pods-RCMVVMSampleLib-RCMVVMSampleView.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D3F97B461F4EF531006F20FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F97B7B1F4F0B3F006F20FD /* RCMVVMSampleLib.framework in Frameworks */,
+				30D6ADF16608B26EA2768902 /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F97B5A1F4EF531006F20FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F97B651F4EF531006F20FD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		51107FF76BF79095A99F2946 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DBC065B185DD8B3992DDF326 /* Pods-RCMVVMSampleLib-RCMVVMSampleView.debug.xcconfig */,
+				83729018D58DA2923EFDAADC /* Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6345FFE8E61B76926DDB99A6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D3F97B7A1F4F0B3F006F20FD /* RCMVVMSampleLib.framework */,
+				6697447C3ACDB55861B32C4A /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D3F97B401F4EF531006F20FD = {
+			isa = PBXGroup;
+			children = (
+				D3F97B4B1F4EF531006F20FD /* RCMVVMSampleView */,
+				D3F97B601F4EF531006F20FD /* RCMVVMSampleViewTests */,
+				D3F97B6B1F4EF531006F20FD /* RCMVVMSampleViewUITests */,
+				D3F97B4A1F4EF531006F20FD /* Products */,
+				51107FF76BF79095A99F2946 /* Pods */,
+				6345FFE8E61B76926DDB99A6 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		D3F97B4A1F4EF531006F20FD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D3F97B491F4EF531006F20FD /* RCMVVMSampleView.app */,
+				D3F97B5D1F4EF531006F20FD /* RCMVVMSampleViewTests.xctest */,
+				D3F97B681F4EF531006F20FD /* RCMVVMSampleViewUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D3F97B4B1F4EF531006F20FD /* RCMVVMSampleView */ = {
+			isa = PBXGroup;
+			children = (
+				D3F97B831F4F1069006F20FD /* Resources */,
+				D3F97B4C1F4EF531006F20FD /* AppDelegate.swift */,
+				D3F97BA71F506519006F20FD /* ItemTableViewCell.swift */,
+				D3F97BA51F504682006F20FD /* ItemListChangesetTableViewController.swift */,
+				D3F97B501F4EF531006F20FD /* Main.storyboard */,
+				D3F97B531F4EF531006F20FD /* Assets.xcassets */,
+				D3F97B551F4EF531006F20FD /* LaunchScreen.storyboard */,
+				D3F97B581F4EF531006F20FD /* Info.plist */,
+			);
+			path = RCMVVMSampleView;
+			sourceTree = "<group>";
+		};
+		D3F97B601F4EF531006F20FD /* RCMVVMSampleViewTests */ = {
+			isa = PBXGroup;
+			children = (
+				D3F97B611F4EF531006F20FD /* RCMVVMSampleViewTests.swift */,
+				D3F97B631F4EF531006F20FD /* Info.plist */,
+			);
+			path = RCMVVMSampleViewTests;
+			sourceTree = "<group>";
+		};
+		D3F97B6B1F4EF531006F20FD /* RCMVVMSampleViewUITests */ = {
+			isa = PBXGroup;
+			children = (
+				D3F97B6C1F4EF531006F20FD /* RCMVVMSampleViewUITests.swift */,
+				D3F97B6E1F4EF531006F20FD /* Info.plist */,
+			);
+			path = RCMVVMSampleViewUITests;
+			sourceTree = "<group>";
+		};
+		D3F97B831F4F1069006F20FD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D3F97B841F4F1069006F20FD /* itemsResponse.json */,
+			);
+			name = Resources;
+			path = ../../Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D3F97B481F4EF531006F20FD /* RCMVVMSampleView */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3F97B711F4EF531006F20FD /* Build configuration list for PBXNativeTarget "RCMVVMSampleView" */;
+			buildPhases = (
+				960D38EB41BB200B19E0F478 /* [CP] Check Pods Manifest.lock */,
+				D3F97B451F4EF531006F20FD /* Sources */,
+				D3F97B461F4EF531006F20FD /* Frameworks */,
+				D3F97B471F4EF531006F20FD /* Resources */,
+				3465826A7D1F7631E7B5FF6D /* [CP] Embed Pods Frameworks */,
+				C8FE79B0C2D3DDC6864897F8 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RCMVVMSampleView;
+			productName = RCMVVMSampleView;
+			productReference = D3F97B491F4EF531006F20FD /* RCMVVMSampleView.app */;
+			productType = "com.apple.product-type.application";
+		};
+		D3F97B5C1F4EF531006F20FD /* RCMVVMSampleViewTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3F97B741F4EF531006F20FD /* Build configuration list for PBXNativeTarget "RCMVVMSampleViewTests" */;
+			buildPhases = (
+				D3F97B591F4EF531006F20FD /* Sources */,
+				D3F97B5A1F4EF531006F20FD /* Frameworks */,
+				D3F97B5B1F4EF531006F20FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3F97B5F1F4EF531006F20FD /* PBXTargetDependency */,
+			);
+			name = RCMVVMSampleViewTests;
+			productName = RCMVVMSampleViewTests;
+			productReference = D3F97B5D1F4EF531006F20FD /* RCMVVMSampleViewTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		D3F97B671F4EF531006F20FD /* RCMVVMSampleViewUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D3F97B771F4EF531006F20FD /* Build configuration list for PBXNativeTarget "RCMVVMSampleViewUITests" */;
+			buildPhases = (
+				D3F97B641F4EF531006F20FD /* Sources */,
+				D3F97B651F4EF531006F20FD /* Frameworks */,
+				D3F97B661F4EF531006F20FD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D3F97B6A1F4EF531006F20FD /* PBXTargetDependency */,
+			);
+			name = RCMVVMSampleViewUITests;
+			productName = RCMVVMSampleViewUITests;
+			productReference = D3F97B681F4EF531006F20FD /* RCMVVMSampleViewUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D3F97B411F4EF531006F20FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Alberto Salas";
+				TargetAttributes = {
+					D3F97B481F4EF531006F20FD = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = 3L9XYMJ8E9;
+						ProvisioningStyle = Automatic;
+					};
+					D3F97B5C1F4EF531006F20FD = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D3F97B481F4EF531006F20FD;
+					};
+					D3F97B671F4EF531006F20FD = {
+						CreatedOnToolsVersion = 8.3.3;
+						ProvisioningStyle = Automatic;
+						TestTargetID = D3F97B481F4EF531006F20FD;
+					};
+				};
+			};
+			buildConfigurationList = D3F97B441F4EF531006F20FD /* Build configuration list for PBXProject "RCMVVMSampleView" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = D3F97B401F4EF531006F20FD;
+			productRefGroup = D3F97B4A1F4EF531006F20FD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D3F97B481F4EF531006F20FD /* RCMVVMSampleView */,
+				D3F97B5C1F4EF531006F20FD /* RCMVVMSampleViewTests */,
+				D3F97B671F4EF531006F20FD /* RCMVVMSampleViewUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D3F97B471F4EF531006F20FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F97B571F4EF531006F20FD /* LaunchScreen.storyboard in Resources */,
+				D3F97B541F4EF531006F20FD /* Assets.xcassets in Resources */,
+				D3F97B521F4EF531006F20FD /* Main.storyboard in Resources */,
+				D3F97B851F4F1069006F20FD /* itemsResponse.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F97B5B1F4EF531006F20FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F97B661F4EF531006F20FD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3465826A7D1F7631E7B5FF6D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RCMVVMSampleLib-RCMVVMSampleView/Pods-RCMVVMSampleLib-RCMVVMSampleView-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		960D38EB41BB200B19E0F478 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C8FE79B0C2D3DDC6864897F8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-RCMVVMSampleLib-RCMVVMSampleView/Pods-RCMVVMSampleLib-RCMVVMSampleView-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D3F97B451F4EF531006F20FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F97B4D1F4EF531006F20FD /* AppDelegate.swift in Sources */,
+				D3F97BA81F506519006F20FD /* ItemTableViewCell.swift in Sources */,
+				D3F97BA61F504682006F20FD /* ItemListChangesetTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F97B591F4EF531006F20FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F97B621F4EF531006F20FD /* RCMVVMSampleViewTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D3F97B641F4EF531006F20FD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3F97B6D1F4EF531006F20FD /* RCMVVMSampleViewUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D3F97B5F1F4EF531006F20FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3F97B481F4EF531006F20FD /* RCMVVMSampleView */;
+			targetProxy = D3F97B5E1F4EF531006F20FD /* PBXContainerItemProxy */;
+		};
+		D3F97B6A1F4EF531006F20FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D3F97B481F4EF531006F20FD /* RCMVVMSampleView */;
+			targetProxy = D3F97B691F4EF531006F20FD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D3F97B501F4EF531006F20FD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3F97B511F4EF531006F20FD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		D3F97B551F4EF531006F20FD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D3F97B561F4EF531006F20FD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D3F97B6F1F4EF531006F20FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		D3F97B701F4EF531006F20FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D3F97B721F4EF531006F20FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DBC065B185DD8B3992DDF326 /* Pods-RCMVVMSampleLib-RCMVVMSampleView.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3L9XYMJ8E9;
+				INFOPLIST_FILE = RCMVVMSampleView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.albertosalas.RCMVVMSampleView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		D3F97B731F4EF531006F20FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 83729018D58DA2923EFDAADC /* Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 3L9XYMJ8E9;
+				INFOPLIST_FILE = RCMVVMSampleView/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.albertosalas.RCMVVMSampleView;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		D3F97B751F4EF531006F20FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RCMVVMSampleViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.albertosalas.RCMVVMSampleViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCMVVMSampleView.app/RCMVVMSampleView";
+			};
+			name = Debug;
+		};
+		D3F97B761F4EF531006F20FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = RCMVVMSampleViewTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.albertosalas.RCMVVMSampleViewTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RCMVVMSampleView.app/RCMVVMSampleView";
+			};
+			name = Release;
+		};
+		D3F97B781F4EF531006F20FD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = RCMVVMSampleViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.albertosalas.RCMVVMSampleViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RCMVVMSampleView;
+			};
+			name = Debug;
+		};
+		D3F97B791F4EF531006F20FD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				INFOPLIST_FILE = RCMVVMSampleViewUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.albertosalas.RCMVVMSampleViewUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+				TEST_TARGET_NAME = RCMVVMSampleView;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D3F97B441F4EF531006F20FD /* Build configuration list for PBXProject "RCMVVMSampleView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3F97B6F1F4EF531006F20FD /* Debug */,
+				D3F97B701F4EF531006F20FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3F97B711F4EF531006F20FD /* Build configuration list for PBXNativeTarget "RCMVVMSampleView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3F97B721F4EF531006F20FD /* Debug */,
+				D3F97B731F4EF531006F20FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3F97B741F4EF531006F20FD /* Build configuration list for PBXNativeTarget "RCMVVMSampleViewTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3F97B751F4EF531006F20FD /* Debug */,
+				D3F97B761F4EF531006F20FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D3F97B771F4EF531006F20FD /* Build configuration list for PBXNativeTarget "RCMVVMSampleViewUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D3F97B781F4EF531006F20FD /* Debug */,
+				D3F97B791F4EF531006F20FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D3F97B411F4EF531006F20FD /* Project object */;
+}
