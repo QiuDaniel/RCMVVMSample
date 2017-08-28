@@ -25,15 +25,10 @@ class BackendClientMoyaStub: BackendClient {
 	
 	func getItems(withSearchString searchString: String? = nil) -> BackendClientGetItemsResponse {
 		
-		var r = provider.reactive.request(.getItems(searchString: searchString))
-			.mapArray(Item.self)
-			.mapError { moyaError in
-				/* Handle and transform errors here */
-				return BackendClientError.BackendClientGeneral
-			}
+		var r = getItemsMoya(withSearchString: searchString)
 		
 		/* Just to make things work */
-		/* searchString should be sent to the backend */
+		/* filter should be applied at the backend */
 		if let searchString = searchString, !searchString.isEmpty {
 			r = r.flatten().filter({ item in
 				return item.name.lowercased().range(of: searchString.lowercased()) != nil
@@ -41,6 +36,17 @@ class BackendClientMoyaStub: BackendClient {
 		}
 		
 		return r
+	}
+	
+	func getItemsMoya(withSearchString searchString: String? = nil) -> BackendClientGetItemsResponse {
+		
+		return provider.reactive.request(.getItems(searchString: searchString))
+			.mapArray(Item.self)
+			.mapError { moyaError in
+				/* Handle and transform errors here */
+				return BackendClientError.BackendClientGeneral
+		}
+		
 	}
 	
 }

@@ -21,129 +21,55 @@ class ItemListChangesetViewModelTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
     }
-    
-    func testLoadItemsOK() {
+	
+	func testLoadItemsOK() {
 		
-		let expectedSearchString = "expectedSearchString"
+		let expectedSearchString = "test"
 		let expectedItems = [Item]()
+		let hniEx = expectation(description: "hni")
+		let cEx = expectation(description: "c")
 		
-		let backendClientMockItems = BackendClientMock { searchString in
+		let bc = BackendClientMock(getItemsClosure: { searchString in
 			XCTAssertEqual(searchString, expectedSearchString)
 			return BackendClientGetItemsResponse(value: expectedItems)
-		}
+		})
 		
-		let hniEx = expectation(description: "hni")
-		
-		let ilcvmMock = ItemListChangesetViewModelMock(withBackendClient: backendClientMockItems)
-		ilcvmMock.searchString.value = expectedSearchString
-		ilcvmMock.handleNewItemsClosure = { items in
+		let ilcvm = ItemListChangesetViewModelMock(withBackendClient: bc)
+		ilcvm.handleNewItemsClosure = { items in
 			XCTAssertEqual(items, expectedItems)
 			hniEx.fulfill()
 		}
 		
-		ilcvmMock.loadItems()
-		
-		waitForExpectations(timeout: 1, handler: nil)
-		
-    }
-	
-	func testLoadItemsError() {
-		
-		let expectedSearchString = "expectedSearchString"
-		let expectedError = BackendClientError.BackendClientGeneral
-		
-		let backendClientMockError = BackendClientMock { searchString in
-			XCTAssertEqual(searchString, expectedSearchString)
-			return BackendClientGetItemsResponse(error:.BackendClientGeneral)
+		ilcvm.loadItems(searchString: expectedSearchString).startWithCompleted {
+			cEx.fulfill()
 		}
-		
-		let hnieEx = expectation(description: "hnie")
-		
-		let ilcvmMock = ItemListChangesetViewModelMock(withBackendClient: backendClientMockError)
-		ilcvmMock.searchString.value = expectedSearchString
-		ilcvmMock.handleBackendClientErrorClosure = { error in
-			XCTAssertEqual(error, expectedError)
-			hnieEx.fulfill()
-			return ItemListChangesetViewModelError.ItemListChangesetViewModelGeneral
-		}
-		
-		ilcvmMock.loadItems()
 		
 		waitForExpectations(timeout: 1, handler: nil)
 		
 	}
 	
-//	func testhandleItemsEvent() {
-//		
-//		//let expectedItems = [Item]()
-//		
-////		func observer(expectedEvent: LoadItemsActionsSignal.Event) -> LoadItemsActionsSignal.Observer {
-////			return LoadItemsActionsSignal.Observer(action: { event in
-////				XCTAssertEqual(event, nil)
-////			})
-////		}
-////		LoadItemsActionsSignal.Observer(action: { event in
-////			XCTAssertEqual(1, 1)
-////		})
-//		
-//		func loadItemsPipe(expectedEvent: (LoadItemsActionsSignal.Event)?, completion:@escaping () -> Void) -> (LoadItemsActionsSignal, LoadItemsActionsSignal.Observer) {
-//			let (signal, observer) = LoadItemsActionsSignal.pipe()
-//			signal.observe { event in
-//				if let expectedEvent = expectedEvent {
-//					XCTAssertTrue(equalEvents(event, expectedEvent))
-//				} else {
-//					XCTFail()
-//				}
-//				completion()
-//			}
-//			return (signal, observer)
-//		}
-//		
-//		
-//		//func handleItemsEvent(event: ItemsSignalEvent, observer: LoadItemsActionsSignal.Observer)
-//		let ilcvm = ItemListChangesetViewModel()
-//		
-//		let expectedItems = [Item]()
-//		var event = ItemsSignalEvent.value(expectedItems)
-//		
-//		let soEx = expectation(description: "so")
-//		
-//		var (signal, observer) = loadItemsPipe(expectedEvent: nil, completion: { soEx.fulfill() })
-//		
-//		ilcvm.handleItemsEvent(event: event, observer: observer)
-//		
-//		waitForExpectations(timeout: 100, handler: nil)
-//		
-////		event = ItemsSignalEvent.failed(BackendClientError.BackendClientGeneral)
-////		(signal, observer) = loadItemsPipe(expectedEvent: LoadItemsActionsSignal.Event.failed(ItemListChangesetViewModelError.ItemListChangesetViewModelGeneral))
-////		ilcvm.handleItemsEvent(event: event, observer: observer)
-//		
-//		//let t = ItemsSignalEvent.value(expectedItems)
-//		
-//		
-//	}
-	
-	func testLoadItems2() {
+	func testLoadItemsError() {
 		
-		let expectedItems = [Item]()
-		let hiEx = expectation(description: "hi")
-		let cEx = expectation(description: "c")
+		let expectedSearchString = "test"
+		let expectedError = ItemListChangesetViewModelError.ItemListChangesetViewModelGeneral
+		let eEx = expectation(description: "e")
 		
-		let bc = BackendClientMock { _ in
-			return BackendClientGetItemsResponse(value: expectedItems)
-		}
+		let bc = BackendClientMock(getItemsClosure: { searchString in
+			XCTAssertEqual(searchString, expectedSearchString)
+			return BackendClientGetItemsResponse(error: BackendClientError.BackendClientGeneral)
+		})
 		
 		let ilcvm = ItemListChangesetViewModelMock(withBackendClient: bc)
 		ilcvm.handleNewItemsClosure = { items in
-			XCTAssertEqual(items, expectedItems)
-			hiEx.fulfill()
+			XCTFail()
 		}
 		
-		ilcvm.loadItems2().startWithCompleted {
-			cEx.fulfill()
+		ilcvm.loadItems(searchString: expectedSearchString).startWithFailed { error in
+			XCTAssertEqual(error, expectedError)
+			eEx.fulfill()
 		}
 		
-		waitForExpectations(timeout: 100, handler: nil)
+		waitForExpectations(timeout: 1, handler: nil)
 		
 	}
 	

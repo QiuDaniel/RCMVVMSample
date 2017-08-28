@@ -19,8 +19,8 @@ public typealias AddItemAction = Action<ItemListCellViewModel, Void, NoError>
 public typealias LoadItemsAction = Action<String?, Void, ItemListChangesetViewModelError>
 public typealias ItemsChangeset = [Edit<ItemListCellViewModel>]
 
-typealias ItemsSignalEvent = Signal<[Item], BackendClientError>.Event
-typealias LoadItemsActionsSignal = Signal<Void, ItemListChangesetViewModelError>
+//typealias ItemsSignalEvent = Signal<[Item], BackendClientError>.Event
+//typealias LoadItemsActionsSignal = Signal<Void, ItemListChangesetViewModelError>
 
 public class ItemListChangesetViewModel {
 	
@@ -59,12 +59,6 @@ public class ItemListChangesetViewModel {
 			}
 		}
 		
-//		self.loadItemsAction = Action<Void, Void, ItemListChangesetViewModelError>() { _ in
-//			return SignalProducer { [weak self] observer, lifetime in
-//				self?.loadItems(observer: observer)
-//			}
-//		}
-		
 		self.loadItemsAction = LoadItemsAction() { searchString in
 			return self.loadItems(searchString: searchString)
 		}
@@ -80,20 +74,6 @@ public class ItemListChangesetViewModel {
 	}
 	
 	// MARK: - Public methods
-	
-	// Load Items from BackendClient
-//	public func loadItems() {
-//		backendClient.getItems(withSearchString: searchString.value).start() { [weak self] result in
-//			switch result {
-//			case let .value(items):
-//				self?.handleNewItems(items: items)
-//			case let .failed(error):
-//				self?.handleBackendClientError(error: error)
-//			default:
-//				break
-//			}
-//		}
-//	}
 	
 	public func getItemsCount() -> Int {
 		return items.count
@@ -113,33 +93,9 @@ public class ItemListChangesetViewModel {
 			return .ItemListChangesetViewModelGeneral
 		})
 	}
-	
-//	func loadItems(observer: LoadItemsActionsSignal.Observer) {
-//		backendClient.getItems(withSearchString: searchString.value).start() { [weak self] event in
-//			self?.handleItemsEvent(event: event, observer: observer)
-//		}
-//	}
-//	
-//	func handleItemsEvent(event: ItemsSignalEvent, observer: LoadItemsActionsSignal.Observer) {
-//		switch event {
-//		case let .value(items):
-//			handleNewItems(items: items)
-//		case let .failed(error):
-//			observer.send(error: handleBackendClientError(error: error))
-//		case .interrupted:
-//			observer.sendInterrupted()
-//		case .completed:
-//			observer.sendCompleted()
-//		}
-//	}
 
 	func handleNewItems(items:[Item]) {
 		self.items = items.map { ItemListCellViewModel(withItem: $0) }
 	}
-
-//	func handleBackendClientError(error:BackendClientError) -> ItemListChangesetViewModelError {
-//		/* Manage and transform the error here */
-//		return .ItemListChangesetViewModelGeneral
-//	}
 	
 }
