@@ -20,7 +20,7 @@ target 'RCMVVMSampleLib’ do
     pod 'ObjectMapper', '~> 2.2'
 
     # Moya+ObjectMapper+ReactiveSwift Library
-    pod 'Moya-ObjectMapper/ReactiveSwift', :git => 'https://github.com/albsala/Moya-ObjectMapper.git', :branch => 'reactiveswift'
+	pod 'Moya-ObjectMapper/ReactiveSwift', :git => 'https://github.com/albsala/Moya-ObjectMapper.git', :branch => 'reactiveswift'
 
     # Minimal edits required calculation utility to use with UITableVIew
     pod 'Changeset', '~> 2.1'
@@ -32,7 +32,7 @@ target 'RCMVVMSampleLib’ do
         project 'RCMVVMSampleView/RCMVVMSampleView'
 
         # Reactive extensions to Cocoa frameworks, built on top of ReactiveSwift
-pod 'ReactiveCocoa', :path => '~/Documents/iPhone/ReactiveCocoa' #'~> 6.0'
+		pod 'ReactiveCocoa', :git => 'https://github.com/albsala/ReactiveCocoa.git', :branch => 'uisearchbarcancelsignal' #:path => '~/Documents/iPhone/ReactiveCocoa' #'~> 6.0'
         
     end
     
