@@ -135,10 +135,15 @@
                             <outlet property="delegate" destination="FOv-Kk-Auh" id="fX9-k7-zpa"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Datasource" id="wVN-wt-W3U"/>
+                    <navigationItem key="navigationItem" title="Datasource" id="wVN-wt-W3U">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="UuH-T8-OqY"/>
+                    </navigationItem>
                     <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="Qij-g1-WfN">
                         <autoresizingMask key="autoresizingMask"/>
                     </refreshControl>
+                    <connections>
+                        <outlet property="addButton" destination="UuH-T8-OqY" id="e06-eu-ljh"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bzj-L8-a9c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

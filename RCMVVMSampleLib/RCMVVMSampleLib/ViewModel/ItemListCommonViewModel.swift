@@ -15,6 +15,7 @@ public enum ItemListViewModelError: Error {
 }
 
 public typealias LoadItemsAction = Action<Void, Void, ItemListViewModelError>
+public typealias AddItemAction = Action<ItemListCellViewModel, Void, NoError>
 
 public class ItemListCommonViewModel {
 	
@@ -23,6 +24,10 @@ public class ItemListCommonViewModel {
 	
 	// Load Items Action
 	public var loadItemsAction: LoadItemsAction! = nil
+	
+	// Action (with condition) Example
+	public let addItemCondition: MutableProperty<Bool> = MutableProperty(false)
+	public var addItemAction: AddItemAction! = nil
 	
 	// Serach String
 	public var searchString: MutableProperty<String?> = MutableProperty("")
@@ -40,9 +45,19 @@ public class ItemListCommonViewModel {
 			return self.loadItems(searchString: self.searchString.value)
 		}
 		
+		//ReactiveSwift Action to add an item
+		self.addItemAction = AddItemAction(enabledIf: addItemCondition) { (item: ItemListCellViewModel) in
+			return SignalProducer { [weak self] observer, lifetime in
+				self?.backendClient.addItem(item.item)
+				observer.sendCompleted()
+			}
+		}
+		
 		self.loadItemsAction <~ self.searchString.signal.rcmvvms_replaceValue((), ofType: Void.self)
 		/*.throttle(1, on: QueueScheduler())
 		.filter { $0.characters.count >= 3 }*/
+		
+		self.loadItemsAction <~ self.addItemAction.completed
 		
 	}
 	

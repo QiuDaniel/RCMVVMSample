@@ -17,6 +17,7 @@ class ItemListCommonTableViewController: UITableViewController {
 	var viewModel: ItemListCommonViewModel!
 	
 	// UI Outlets
+	@IBOutlet weak var addButton: UIBarButtonItem!
 	let searchController = UISearchController(searchResultsController: nil)
 	
 	// MARK: - UIViewController lifecycle
@@ -31,6 +32,8 @@ class ItemListCommonTableViewController: UITableViewController {
 		setupSearchController(searchController)
 		
 		bindSearchController(searchController, withMutableProperty: viewModel.searchString)
+		
+		bindAddItemButton(addButton, action: viewModel.addItemAction, condition: viewModel.addItemCondition)
 
     }
 	
@@ -66,6 +69,25 @@ class ItemListCommonTableViewController: UITableViewController {
 		//Empty property when user click on Cancel button
 		//cancelButtonClicked signal: https://github.com/ReactiveCocoa/ReactiveCocoa/pull/3504
 		mutableProperty <~ searchController.searchBar.reactive.cancelButtonClicked.rcmvvms_replaceValue(nil, ofType: String?.self)
+		
+	}
+	
+	// Bind AddItem Button
+	func bindAddItemButton(_ addButton: UIBarButtonItem, action: AddItemAction, condition: MutableProperty<Bool>) {
+		
+		// Create CocoaAction from addItemAction, adding a test item
+		let addItemCA = CocoaAction(action) { (sender: UIBarButtonItem) -> ItemListCellViewModel in
+			return ItemListCellViewModel(name: "Item Added Name", reference: "Item Added Reference")
+		}
+		
+		// Bind the CocoaAction to the addButton.
+		// It will handle the button's enabling/disabling and the action
+		addButton.reactive.pressed = addItemCA
+		
+		// Enable the addItem button 5 seconds after the view appears
+		Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
+			condition.value = true
+		}
 		
 	}
 	

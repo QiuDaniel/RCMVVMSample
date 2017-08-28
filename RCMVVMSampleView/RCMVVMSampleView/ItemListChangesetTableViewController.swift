@@ -20,17 +20,12 @@ class ItemListChangesetTableViewController: ItemListCommonTableViewController {
 		}
 	}
 	
-	// UI Outlets
-	@IBOutlet weak var addButton: UIBarButtonItem!
-	
 	// MARK: - UIViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
 		bindTableView(tableView, property: viewModelChangeset.itemsChangeset)
-		
-		bindAddItemButton(addButton, action: viewModelChangeset.addItemAction, condition: viewModelChangeset.addItemCondition)
 		
     }
 	
@@ -43,23 +38,6 @@ class ItemListChangesetTableViewController: ItemListCommonTableViewController {
 		}
 	}
 	
-	// Bind AddItem Button
-	func bindAddItemButton(_ addButton: UIBarButtonItem, action: AddItemAction, condition: MutableProperty<Bool>) {
-		
-		// Create CocoaAction from addItemAction, adding a test item
-		let addItemCA = CocoaAction(action) { (sender: UIBarButtonItem) -> ItemListCellViewModel in
-			return ItemListCellViewModel(name: "Item Added Name", reference: "Item Added Reference")
-		}
-		
-		// Bind the CocoaAction to the addButton.
-		// It will handle the button's enabling/disabling and the action
-		addButton.reactive.pressed = addItemCA
-		
-		// Enable the addItem button 5 seconds after the view appears
-		Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
-			condition.value = true
-		}
-		
-	}
+	
 
 }
