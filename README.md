@@ -54,4 +54,3 @@ You can find some unit test in the `RCMVVMSampleLibTests` target that show how t
 * [MVVM + ReactiveCocoa 5](https://blog.joanzapata.com/mvvm-reactivecocoa-5/)
 * [ReactiveCocoa 4 - Action](http://blog.brightinventions.pl/reactivecocoa-4-action/)
 * [MVVM + Swift + ReactiveCocoa 5](https://medium.com/@hilmarbirgir/mvvm-swift-reactivecocoa-5-44274edaa56e)
-* 
