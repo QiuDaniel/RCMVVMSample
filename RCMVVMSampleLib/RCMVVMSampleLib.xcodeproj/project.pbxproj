@@ -16,11 +16,11 @@
 		D3F97B821F4F0EC4006F20FD /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B811F4F0EC4006F20FD /* Item.swift */; };
 		D3F97B871F4F143E006F20FD /* BackendClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B861F4F143E006F20FD /* BackendClient.swift */; };
 		D3F97B891F4F151E006F20FD /* MoyaDummyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B881F4F151E006F20FD /* MoyaDummyService.swift */; };
-		D3F97B8B1F4F17A4006F20FD /* BackendClientMoyaStub.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B8A1F4F17A4006F20FD /* BackendClientMoyaStub.swift */; };
+		D3F97B8B1F4F17A4006F20FD /* BackendClientMoya.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B8A1F4F17A4006F20FD /* BackendClientMoya.swift */; };
 		D3F97B941F50132E006F20FD /* itemsResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B8F1F4F211A006F20FD /* itemsResponse.json */; };
 		D3F97B961F5018B0006F20FD /* ItemListChangesetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B951F5018B0006F20FD /* ItemListChangesetViewModel.swift */; };
 		D3F97B981F5018EA006F20FD /* ItemListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B971F5018EA006F20FD /* ItemListCellViewModel.swift */; };
-		D3F97B9F1F50395C006F20FD /* BackendClientMoyaStubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B9C1F50395C006F20FD /* BackendClientMoyaStubTests.swift */; };
+		D3F97B9F1F50395C006F20FD /* BackendClientMoyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B9C1F50395C006F20FD /* BackendClientMoyaTests.swift */; };
 		D3F97BA01F50395C006F20FD /* ItemListChangesetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B9E1F50395C006F20FD /* ItemListChangesetViewModelTests.swift */; };
 		D3F97BA21F5039B3006F20FD /* BackendClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA11F5039B3006F20FD /* BackendClientMock.swift */; };
 		D3F97BA41F503BE5006F20FD /* ItemListChangesetViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA31F503BE5006F20FD /* ItemListChangesetViewModelMock.swift */; };
@@ -51,11 +51,11 @@
 		D3F97B811F4F0EC4006F20FD /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		D3F97B861F4F143E006F20FD /* BackendClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClient.swift; sourceTree = "<group>"; };
 		D3F97B881F4F151E006F20FD /* MoyaDummyService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoyaDummyService.swift; sourceTree = "<group>"; };
-		D3F97B8A1F4F17A4006F20FD /* BackendClientMoyaStub.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMoyaStub.swift; sourceTree = "<group>"; };
+		D3F97B8A1F4F17A4006F20FD /* BackendClientMoya.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMoya.swift; sourceTree = "<group>"; };
 		D3F97B8F1F4F211A006F20FD /* itemsResponse.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = itemsResponse.json; sourceTree = "<group>"; };
 		D3F97B951F5018B0006F20FD /* ItemListChangesetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetViewModel.swift; sourceTree = "<group>"; };
 		D3F97B971F5018EA006F20FD /* ItemListCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListCellViewModel.swift; sourceTree = "<group>"; };
-		D3F97B9C1F50395C006F20FD /* BackendClientMoyaStubTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMoyaStubTests.swift; sourceTree = "<group>"; };
+		D3F97B9C1F50395C006F20FD /* BackendClientMoyaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMoyaTests.swift; sourceTree = "<group>"; };
 		D3F97B9E1F50395C006F20FD /* ItemListChangesetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetViewModelTests.swift; sourceTree = "<group>"; };
 		D3F97BA11F5039B3006F20FD /* BackendClientMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMock.swift; sourceTree = "<group>"; };
 		D3F97BA31F503BE5006F20FD /* ItemListChangesetViewModelMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetViewModelMock.swift; sourceTree = "<group>"; };
@@ -152,8 +152,8 @@
 			isa = PBXGroup;
 			children = (
 				D3F97B861F4F143E006F20FD /* BackendClient.swift */,
+				D3F97B8A1F4F17A4006F20FD /* BackendClientMoya.swift */,
 				D3F97B881F4F151E006F20FD /* MoyaDummyService.swift */,
-				D3F97B8A1F4F17A4006F20FD /* BackendClientMoyaStub.swift */,
 			);
 			path = BackendClient;
 			sourceTree = "<group>";
@@ -187,7 +187,7 @@
 		D3F97B9B1F50395C006F20FD /* BackendClient */ = {
 			isa = PBXGroup;
 			children = (
-				D3F97B9C1F50395C006F20FD /* BackendClientMoyaStubTests.swift */,
+				D3F97B9C1F50395C006F20FD /* BackendClientMoyaTests.swift */,
 				D3F97BA11F5039B3006F20FD /* BackendClientMock.swift */,
 			);
 			path = BackendClient;
@@ -409,7 +409,7 @@
 			files = (
 				D3F97B821F4F0EC4006F20FD /* Item.swift in Sources */,
 				D379F0FC1F532BB700B3393B /* Signal.swift in Sources */,
-				D3F97B8B1F4F17A4006F20FD /* BackendClientMoyaStub.swift in Sources */,
+				D3F97B8B1F4F17A4006F20FD /* BackendClientMoya.swift in Sources */,
 				D3F97B961F5018B0006F20FD /* ItemListChangesetViewModel.swift in Sources */,
 				D3F97B871F4F143E006F20FD /* BackendClient.swift in Sources */,
 				D3F97B891F4F151E006F20FD /* MoyaDummyService.swift in Sources */,
@@ -424,7 +424,7 @@
 				D3F97B351F4EF422006F20FD /* RCMVVMSampleLibTests.swift in Sources */,
 				D3F97BA01F50395C006F20FD /* ItemListChangesetViewModelTests.swift in Sources */,
 				D3F97BA41F503BE5006F20FD /* ItemListChangesetViewModelMock.swift in Sources */,
-				D3F97B9F1F50395C006F20FD /* BackendClientMoyaStubTests.swift in Sources */,
+				D3F97B9F1F50395C006F20FD /* BackendClientMoyaTests.swift in Sources */,
 				D3F97BA21F5039B3006F20FD /* BackendClientMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

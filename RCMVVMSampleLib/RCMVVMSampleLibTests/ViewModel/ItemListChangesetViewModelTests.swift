@@ -29,10 +29,11 @@ class ItemListChangesetViewModelTests: XCTestCase {
 		let hniEx = expectation(description: "hni")
 		let cEx = expectation(description: "c")
 		
-		let bc = BackendClientMock(getItemsClosure: { searchString in
+		let bc = BackendClientMock()
+		bc.getItemsClosure = { searchString in
 			XCTAssertEqual(searchString, expectedSearchString)
 			return BackendClientGetItemsResponse(value: expectedItems)
-		})
+		}
 		
 		let ilcvm = ItemListChangesetViewModelMock(withBackendClient: bc)
 		ilcvm.handleNewItemsClosure = { items in
@@ -54,10 +55,11 @@ class ItemListChangesetViewModelTests: XCTestCase {
 		let expectedError = ItemListChangesetViewModelError.ItemListChangesetViewModelGeneral
 		let eEx = expectation(description: "e")
 		
-		let bc = BackendClientMock(getItemsClosure: { searchString in
+		let bc = BackendClientMock()
+		bc.getItemsClosure = { searchString in
 			XCTAssertEqual(searchString, expectedSearchString)
 			return BackendClientGetItemsResponse(error: BackendClientError.BackendClientGeneral)
-		})
+		}
 		
 		let ilcvm = ItemListChangesetViewModelMock(withBackendClient: bc)
 		ilcvm.handleNewItemsClosure = { items in

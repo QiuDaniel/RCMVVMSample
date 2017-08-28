@@ -10,7 +10,7 @@ import Foundation
 
 public class ItemListCellViewModel: Equatable {
 	
-	private let item: Item
+	let item: Item
 	
 	public var name: String { return item.name }
 	public var reference: String { return item.reference }

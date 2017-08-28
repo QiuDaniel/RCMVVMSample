@@ -9,14 +9,20 @@
 import Foundation
 @testable import RCMVVMSampleLib
 
-class BackendClientMock: BackendClient {
-	let getItemsClosure: ((String?) -> BackendClientGetItemsResponse)?
+class BackendClientMock: BackendClientMoya {
+	var getItemsClosure: ((String?) -> BackendClientGetItemsResponse)?
+	var getItemsMoyaClosure: ((String?) -> BackendClientGetItemsResponse)?
+	var addItemClosure: ((Item) -> Void)?
 	
-	init(getItemsClosure: ((String?) -> BackendClientGetItemsResponse)? = nil) {
-		self.getItemsClosure = getItemsClosure
+	override func getItems(withSearchString searchString: String?) -> BackendClientGetItemsResponse {
+		return getItemsClosure?(searchString) ?? super.getItems(withSearchString: searchString)
 	}
 	
-	func getItems(withSearchString searchString: String?) -> BackendClientGetItemsResponse {
-		return getItemsClosure!(searchString)
+	override func getItemsMoya(withSearchString searchString: String? = nil) -> BackendClientGetItemsResponse {
+		return getItemsMoyaClosure?(searchString) ?? super.getItemsMoya(withSearchString: searchString)
+	}
+	
+	override func addItem(_ item: Item) {
+		self.addItemClosure?(item) ?? super.addItem(item)
 	}
 }

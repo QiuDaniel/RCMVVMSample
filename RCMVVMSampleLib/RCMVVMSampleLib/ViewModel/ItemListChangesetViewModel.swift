@@ -19,9 +19,6 @@ public typealias AddItemAction = Action<ItemListCellViewModel, Void, NoError>
 public typealias LoadItemsAction = Action<String?, Void, ItemListChangesetViewModelError>
 public typealias ItemsChangeset = [Edit<ItemListCellViewModel>]
 
-//typealias ItemsSignalEvent = Signal<[Item], BackendClientError>.Event
-//typealias LoadItemsActionsSignal = Signal<Void, ItemListChangesetViewModelError>
-
 public class ItemListChangesetViewModel {
 	
 	// Backend Client (Injected)
@@ -54,7 +51,8 @@ public class ItemListChangesetViewModel {
 		//ReactiveSwift Action with a ItemListCellViewModel as Input
 		self.addItemAction = AddItemAction(enabledIf: addItemCondition) { (item: ItemListCellViewModel) in
 			return SignalProducer { [weak self] observer, lifetime in
-				self?.items.insert(item, at: 0)
+				//self?.items.insert(item, at: 0)
+				self?.backendClient.addItem(item.item)
 				observer.sendCompleted()
 			}
 		}
@@ -63,6 +61,7 @@ public class ItemListChangesetViewModel {
 			return self.loadItems(searchString: searchString)
 		}
 		
+		self.loadItemsAction <~ self.addItemAction.completed.rcmvvms_replaceValue(searchString.value, ofType: String?.self)
 		self.loadItemsAction <~ self.searchString.signal
 			/*.throttle(1, on: QueueScheduler())
 			.filter { $0.characters.count >= 3 }*/
@@ -70,7 +69,7 @@ public class ItemListChangesetViewModel {
 	}
 	
 	public convenience init() {
-		self.init(withBackendClient: BackendClientMoyaStub())
+		self.init(withBackendClient: BackendClientMoya())
 	}
 	
 	// MARK: - Public methods

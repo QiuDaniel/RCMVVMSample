@@ -10,8 +10,9 @@ import Foundation
 import ReactiveSwift
 import Moya
 import Moya_ObjectMapper
+import ObjectMapper
 
-class BackendClientMoyaStub: BackendClient {
+class BackendClientMoya: BackendClient {
 	
 	let provider: MoyaProvider<MoyaDummyService>
 	
@@ -40,13 +41,29 @@ class BackendClientMoyaStub: BackendClient {
 	
 	func getItemsMoya(withSearchString searchString: String? = nil) -> BackendClientGetItemsResponse {
 		
-		return provider.reactive.request(.getItems(searchString: searchString))
+		return provider.reactive.request(.getItems(searchString: searchString)).retry(upTo: 3)
 			.mapArray(Item.self)
 			.mapError { moyaError in
 				/* Handle and transform errors here */
 				return BackendClientError.BackendClientGeneral
 		}
 		
+	}
+	
+	func addItem(_ item: Item) {
+		
+		/* Add item to MoyaService's sampleData to make things work */
+		/* This should be sent to the server */
+		MoyaDummyServiceUtil.items = addItem(item, toJSONData: MoyaDummyServiceUtil.items, withEncoding: .utf8)
+		
+	}
+	
+	func addItem(_ item: Item, toJSONData jsonData: Data, withEncoding encoding: String.Encoding) -> Data {
+		var JSONString = String(data: jsonData, encoding: encoding)!
+		var items = Mapper<Item>().mapArray(JSONString: JSONString)!
+		items.insert(item, at: 0)
+		JSONString = items.toJSONString()!
+		return JSONString.data(using: encoding)!
 	}
 	
 }

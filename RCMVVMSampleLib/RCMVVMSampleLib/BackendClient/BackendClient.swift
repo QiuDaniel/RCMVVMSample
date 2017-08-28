@@ -19,4 +19,6 @@ protocol BackendClient {
 	
 	func getItems(withSearchString searchString: String?) -> BackendClientGetItemsResponse
 	
+	func addItem(_ item: Item)
+	
 }

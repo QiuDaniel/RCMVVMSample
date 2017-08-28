@@ -29,17 +29,19 @@ extension MoyaDummyService: TargetType {
 		}
 	}
 	var parameterEncoding: ParameterEncoding { return URLEncoding.default }
-	var sampleData: Data { return MoyaDummyServiceUtil.getItemsResposeData() }
+	var sampleData: Data { return MoyaDummyServiceUtil.items }
 	var task: Task { return .request }
 	var headers: [String: String]? { return ["Content-type": "application/json"] }
 }
 
 class MoyaDummyServiceUtil {
-	static func getItemsResposeData() -> Data {
+	
+	static var items: Data = {
 		guard let url = Bundle(for: MoyaDummyServiceUtil.self).url(forResource: "itemsResponse", withExtension: "json"),
 			let data = try? Data(contentsOf: url) else {
 				return Data()
 		}
 		return data
-	}
+	}()
+	
 }
