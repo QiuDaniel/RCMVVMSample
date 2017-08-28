@@ -20,49 +20,78 @@ class ItemListChangesetTableViewController: UITableViewController {
 	// UI Outlets
 	@IBOutlet weak var addButton: UIBarButtonItem!
 	let searchController = UISearchController(searchResultsController: nil)
+	
+	// MARK: - UIViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-		// Setup the Search Controller
-		searchController.dimsBackgroundDuringPresentation = false
-		definesPresentationContext = true
-		tableView.tableHeaderView = searchController.searchBar
 		
-		// Changeset suscription -> Table updates
-		viewModel.itemsChangeset.producer.startWithValues { edits in
-			self.tableView.update(with: edits)
+		bindTableView(tableView, property: viewModel.itemsChangeset)
+		
+		bindLoadItems(viewModel.loadItemsAction)
+		
+		bindAddItemButton(addButton, action: viewModel.addItemAction, condition: viewModel.addItemCondition)
+
+		setupSearchController(searchController)
+		
+		bindSearchController(searchController, withMutableProperty: viewModel.searchString)
+		
+    }
+	
+	// MARK: - Setup and binding methods
+	
+	// Changeset suscription -> Table updates
+	func bindTableView(_ tableView:UITableView, property:MutableProperty<ItemsChangeset>) {
+		property.producer.startWithValues { edits in
+			tableView.update(with: edits)
 		}
+	}
+	
+	// Bind Load Items Action with events
+	func bindLoadItems(_ loadItemsAction: LoadItemsAction) {
+		// ViewDidAppear event
+		loadItemsAction <~ self.reactive.trigger(for: #selector(viewDidAppear(_:))).rcmvvms_replaceValue(nil, ofType: String?.self)
+	}
+	
+	// Bind AddItem Button
+	func bindAddItemButton(_ addButton: UIBarButtonItem, action: AddItemAction, condition: MutableProperty<Bool>) {
 		
 		// Create CocoaAction from addItemAction, adding a test item
-		let addItemCA = CocoaAction(viewModel.addItemAction) { (sender: UIBarButtonItem) -> ItemListCellViewModel in
+		let addItemCA = CocoaAction(action) { (sender: UIBarButtonItem) -> ItemListCellViewModel in
 			return ItemListCellViewModel(name: "Item Added Name", reference: "Item Added Reference")
 		}
+		
 		// Bind the CocoaAction to the addButton.
 		// It will handle the button's enabling/disabling and the action
 		addButton.reactive.pressed = addItemCA
 		
-		// Bind viewDidAppear event with the loading of items
-//		viewModel.loadItemsAction <~ self.reactive.trigger(for: #selector(ItemListChangesetTableViewController.viewDidAppear(_:))).map({ (_) -> String? in
-//			return nil
-//		})
-		
-		viewModel.loadItemsAction <~ self.reactive.trigger(for: #selector(ItemListChangesetTableViewController.viewDidAppear(_:))).rcmvvms_replaceValue(nil, ofType: String?.self)
-		
 		// Enable the addItem button 5 seconds after the view appears
 		Timer.scheduledTimer(withTimeInterval: 5, repeats: false) { timer in
-			self.viewModel.addItemCondition.value = true
+			condition.value = true
 		}
 		
-//		let searchStringsSignal = searchController.searchBar.reactive.continuousTextValues
-//			.skipNil()
-//			.throttle(1, on: QueueScheduler())
-//			.filter { $0.characters.count >= 3 }
-//		viewModel.searchString <~ searchStringsSignal
-		viewModel.searchString <~ searchController.searchBar.reactive.continuousTextValues
-		viewModel.searchString <~ searchController.searchBar.reactive.cancelButtonClicked.rcmvvms_replaceValue(nil, ofType: String?.self)
+	}
+	
+	// Setup the Search Controller
+	func setupSearchController(_ searchController: UISearchController) {
+		//Setup properties
+		searchController.dimsBackgroundDuringPresentation = false
+		definesPresentationContext = true
+		tableView.tableHeaderView = searchController.searchBar
+	}
+	
+	// Bind SeachController with a property
+	func bindSearchController(_ searchController: UISearchController, withMutableProperty mutableProperty:MutableProperty<String?>) {
 		
-    }
+		//Bind viewModel.searchString with the searchBar values and the cancel button
+		mutableProperty <~ searchController.searchBar.reactive.continuousTextValues
+		
+		//Empty property when user click on Cancel button
+		//cancelButtonClicked signal: https://github.com/ReactiveCocoa/ReactiveCocoa/pull/3504
+		mutableProperty <~ searchController.searchBar.reactive.cancelButtonClicked.rcmvvms_replaceValue(nil, ofType: String?.self)
+		
+	}
+	
 
     // MARK: - Table view data source
 

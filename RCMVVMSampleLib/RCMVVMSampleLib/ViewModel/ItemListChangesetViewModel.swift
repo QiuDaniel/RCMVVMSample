@@ -15,6 +15,10 @@ public enum ItemListChangesetViewModelError: Error {
 	case ItemListChangesetViewModelGeneral
 }
 
+public typealias AddItemAction = Action<ItemListCellViewModel, Void, NoError>
+public typealias LoadItemsAction = Action<String?, Void, ItemListChangesetViewModelError>
+public typealias ItemsChangeset = [Edit<ItemListCellViewModel>]
+
 typealias ItemsSignalEvent = Signal<[Item], BackendClientError>.Event
 typealias LoadItemsActionsSignal = Signal<Void, ItemListChangesetViewModelError>
 
@@ -25,15 +29,15 @@ public class ItemListChangesetViewModel {
 	
 	// Action (with condition) Example
 	public let addItemCondition: MutableProperty<Bool> = MutableProperty(false)
-	public var addItemAction: Action<ItemListCellViewModel, Void, NoError>! = nil
+	public var addItemAction: AddItemAction! = nil
 	
-	public var loadItemsAction: Action<String?, Void, ItemListChangesetViewModelError>! = nil
+	public var loadItemsAction: LoadItemsAction! = nil
 	
 	// Serach String
 	public var searchString: MutableProperty<String?> = MutableProperty("")
 	
 	// Model Changeset
-	public let itemsChangeset = MutableProperty([Edit<ItemListCellViewModel>]())
+	public let itemsChangeset = MutableProperty(ItemsChangeset())
 	// Model
 	private var items: [ItemListCellViewModel] = [] {
 		didSet {
@@ -48,7 +52,7 @@ public class ItemListChangesetViewModel {
 		self.backendClient = backendClient
 		
 		//ReactiveSwift Action with a ItemListCellViewModel as Input
-		self.addItemAction = Action<ItemListCellViewModel, Void, NoError>(enabledIf: addItemCondition) { (item: ItemListCellViewModel) in
+		self.addItemAction = AddItemAction(enabledIf: addItemCondition) { (item: ItemListCellViewModel) in
 			return SignalProducer { [weak self] observer, lifetime in
 				self?.items.insert(item, at: 0)
 				observer.sendCompleted()
@@ -61,7 +65,7 @@ public class ItemListChangesetViewModel {
 //			}
 //		}
 		
-		self.loadItemsAction = Action<String?, Void, ItemListChangesetViewModelError>() { searchString in
+		self.loadItemsAction = LoadItemsAction() { searchString in
 			return self.loadItems(searchString: searchString)
 		}
 		

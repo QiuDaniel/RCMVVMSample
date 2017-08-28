@@ -33,7 +33,7 @@ class BackendClientMoyaStub: BackendClient {
 			}
 		
 		/* Just to make things work */
-		/* It should be sent to the backend */
+		/* searchString should be sent to the backend */
 		if let searchString = searchString, !searchString.isEmpty {
 			r = r.flatten().filter({ item in
 				return item.name.lowercased().range(of: searchString.lowercased()) != nil
