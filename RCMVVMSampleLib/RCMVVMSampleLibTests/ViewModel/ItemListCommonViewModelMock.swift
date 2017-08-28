@@ -9,7 +9,7 @@
 import Foundation
 @testable import RCMVVMSampleLib
 
-class ItemListChangesetViewModelMock: ItemListChangesetViewModel {
+class ItemListCommonViewModelMock: ItemListCommonViewModel {
 	
 	var handleNewItemsClosure: (([Item]) -> Void)?
 	

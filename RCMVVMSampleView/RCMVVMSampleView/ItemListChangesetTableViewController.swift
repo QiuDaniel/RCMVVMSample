@@ -9,32 +9,28 @@
 import UIKit
 import ReactiveSwift
 import ReactiveCocoa
-import Result
 import RCMVVMSampleLib
 
-class ItemListChangesetTableViewController: UITableViewController {
+class ItemListChangesetTableViewController: ItemListCommonTableViewController {
 	
 	// ViewModel
-	var viewModel: ItemListChangesetViewModel!
+	var viewModelChangeset: ItemListChangesetViewModel! {
+		didSet {
+			self.viewModel = viewModelChangeset
+		}
+	}
 	
 	// UI Outlets
 	@IBOutlet weak var addButton: UIBarButtonItem!
-	let searchController = UISearchController(searchResultsController: nil)
 	
 	// MARK: - UIViewController lifecycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
 		
-		bindTableView(tableView, property: viewModel.itemsChangeset)
+		bindTableView(tableView, property: viewModelChangeset.itemsChangeset)
 		
-		bindLoadItems(viewModel.loadItemsAction)
-		
-		bindAddItemButton(addButton, action: viewModel.addItemAction, condition: viewModel.addItemCondition)
-
-		setupSearchController(searchController)
-		
-		bindSearchController(searchController, withMutableProperty: viewModel.searchString)
+		bindAddItemButton(addButton, action: viewModelChangeset.addItemAction, condition: viewModelChangeset.addItemCondition)
 		
     }
 	
@@ -45,12 +41,6 @@ class ItemListChangesetTableViewController: UITableViewController {
 		property.producer.startWithValues { edits in
 			tableView.update(with: edits)
 		}
-	}
-	
-	// Bind Load Items Action with events
-	func bindLoadItems(_ loadItemsAction: LoadItemsAction) {
-		// ViewDidAppear event
-		loadItemsAction <~ self.reactive.trigger(for: #selector(viewDidAppear(_:))).rcmvvms_replaceValue(nil, ofType: String?.self)
 	}
 	
 	// Bind AddItem Button
@@ -71,42 +61,5 @@ class ItemListChangesetTableViewController: UITableViewController {
 		}
 		
 	}
-	
-	// Setup the Search Controller
-	func setupSearchController(_ searchController: UISearchController) {
-		//Setup properties
-		searchController.dimsBackgroundDuringPresentation = false
-		definesPresentationContext = true
-		tableView.tableHeaderView = searchController.searchBar
-	}
-	
-	// Bind SeachController with a property
-	func bindSearchController(_ searchController: UISearchController, withMutableProperty mutableProperty:MutableProperty<String?>) {
-		
-		//Bind viewModel.searchString with the searchBar values and the cancel button
-		mutableProperty <~ searchController.searchBar.reactive.continuousTextValues
-		
-		//Empty property when user click on Cancel button
-		//cancelButtonClicked signal: https://github.com/ReactiveCocoa/ReactiveCocoa/pull/3504
-		mutableProperty <~ searchController.searchBar.reactive.cancelButtonClicked.rcmvvms_replaceValue(nil, ofType: String?.self)
-		
-	}
-	
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.getItemsCount()
-    }
-
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "itemCell", for: indexPath) as! ItemTableViewCell
-        cell.viewModel = viewModel.getItemViewModel(forIndex: indexPath.row)
-        return cell
-    }
 
 }

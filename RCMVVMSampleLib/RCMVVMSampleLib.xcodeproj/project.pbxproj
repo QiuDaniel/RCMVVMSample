@@ -10,6 +10,8 @@
 		629E23119A35B903C08B4DDE /* Pods_RCMVVMSampleLib_RCMVVMSampleLibTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C86D588D1A5D6A2630468948 /* Pods_RCMVVMSampleLib_RCMVVMSampleLibTests.framework */; };
 		9E02CC7B9D3CC556BBADA799 /* Pods_RCMVVMSampleLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F5795C4ED256D208A2C63A1C /* Pods_RCMVVMSampleLib.framework */; };
 		D379F0FC1F532BB700B3393B /* Signal.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379F0FB1F532BB700B3393B /* Signal.swift */; };
+		D379F1021F5422C300B3393B /* ItemListReloadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379F1011F5422C300B3393B /* ItemListReloadViewModel.swift */; };
+		D379F1041F54240700B3393B /* ItemListCommonViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379F1031F54240700B3393B /* ItemListCommonViewModel.swift */; };
 		D3F97B301F4EF422006F20FD /* RCMVVMSampleLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3F97B261F4EF422006F20FD /* RCMVVMSampleLib.framework */; };
 		D3F97B351F4EF422006F20FD /* RCMVVMSampleLibTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B341F4EF422006F20FD /* RCMVVMSampleLibTests.swift */; };
 		D3F97B371F4EF423006F20FD /* RCMVVMSampleLib.h in Headers */ = {isa = PBXBuildFile; fileRef = D3F97B291F4EF422006F20FD /* RCMVVMSampleLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -21,9 +23,9 @@
 		D3F97B961F5018B0006F20FD /* ItemListChangesetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B951F5018B0006F20FD /* ItemListChangesetViewModel.swift */; };
 		D3F97B981F5018EA006F20FD /* ItemListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B971F5018EA006F20FD /* ItemListCellViewModel.swift */; };
 		D3F97B9F1F50395C006F20FD /* BackendClientMoyaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B9C1F50395C006F20FD /* BackendClientMoyaTests.swift */; };
-		D3F97BA01F50395C006F20FD /* ItemListChangesetViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B9E1F50395C006F20FD /* ItemListChangesetViewModelTests.swift */; };
+		D3F97BA01F50395C006F20FD /* ItemListCommonViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B9E1F50395C006F20FD /* ItemListCommonViewModelTests.swift */; };
 		D3F97BA21F5039B3006F20FD /* BackendClientMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA11F5039B3006F20FD /* BackendClientMock.swift */; };
-		D3F97BA41F503BE5006F20FD /* ItemListChangesetViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA31F503BE5006F20FD /* ItemListChangesetViewModelMock.swift */; };
+		D3F97BA41F503BE5006F20FD /* ItemListCommonViewModelMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97BA31F503BE5006F20FD /* ItemListCommonViewModelMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +44,8 @@
 		A7E8F6F751654351224B9F3E /* Pods-RCMVVMSampleLib.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCMVVMSampleLib.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RCMVVMSampleLib/Pods-RCMVVMSampleLib.release.xcconfig"; sourceTree = "<group>"; };
 		C86D588D1A5D6A2630468948 /* Pods_RCMVVMSampleLib_RCMVVMSampleLibTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCMVVMSampleLib_RCMVVMSampleLibTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D379F0FB1F532BB700B3393B /* Signal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signal.swift; sourceTree = "<group>"; };
+		D379F1011F5422C300B3393B /* ItemListReloadViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListReloadViewModel.swift; sourceTree = "<group>"; };
+		D379F1031F54240700B3393B /* ItemListCommonViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListCommonViewModel.swift; sourceTree = "<group>"; };
 		D3F97B261F4EF422006F20FD /* RCMVVMSampleLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RCMVVMSampleLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F97B291F4EF422006F20FD /* RCMVVMSampleLib.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RCMVVMSampleLib.h; sourceTree = "<group>"; };
 		D3F97B2A1F4EF422006F20FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,9 +60,9 @@
 		D3F97B951F5018B0006F20FD /* ItemListChangesetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetViewModel.swift; sourceTree = "<group>"; };
 		D3F97B971F5018EA006F20FD /* ItemListCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListCellViewModel.swift; sourceTree = "<group>"; };
 		D3F97B9C1F50395C006F20FD /* BackendClientMoyaTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMoyaTests.swift; sourceTree = "<group>"; };
-		D3F97B9E1F50395C006F20FD /* ItemListChangesetViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetViewModelTests.swift; sourceTree = "<group>"; };
+		D3F97B9E1F50395C006F20FD /* ItemListCommonViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListCommonViewModelTests.swift; sourceTree = "<group>"; };
 		D3F97BA11F5039B3006F20FD /* BackendClientMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BackendClientMock.swift; sourceTree = "<group>"; };
-		D3F97BA31F503BE5006F20FD /* ItemListChangesetViewModelMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListChangesetViewModelMock.swift; sourceTree = "<group>"; };
+		D3F97BA31F503BE5006F20FD /* ItemListCommonViewModelMock.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListCommonViewModelMock.swift; sourceTree = "<group>"; };
 		D54502C03B6AC9C12E4B0783 /* Pods-RCMVVMSampleLib.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCMVVMSampleLib.debug.xcconfig"; path = "../Pods/Target Support Files/Pods-RCMVVMSampleLib/Pods-RCMVVMSampleLib.debug.xcconfig"; sourceTree = "<group>"; };
 		F5795C4ED256D208A2C63A1C /* Pods_RCMVVMSampleLib.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCMVVMSampleLib.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -169,7 +173,9 @@
 		D3F97B7E1F4F0BE0006F20FD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				D379F1031F54240700B3393B /* ItemListCommonViewModel.swift */,
 				D3F97B951F5018B0006F20FD /* ItemListChangesetViewModel.swift */,
+				D379F1011F5422C300B3393B /* ItemListReloadViewModel.swift */,
 				D3F97B971F5018EA006F20FD /* ItemListCellViewModel.swift */,
 			);
 			path = ViewModel;
@@ -196,8 +202,8 @@
 		D3F97B9D1F50395C006F20FD /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				D3F97B9E1F50395C006F20FD /* ItemListChangesetViewModelTests.swift */,
-				D3F97BA31F503BE5006F20FD /* ItemListChangesetViewModelMock.swift */,
+				D3F97B9E1F50395C006F20FD /* ItemListCommonViewModelTests.swift */,
+				D3F97BA31F503BE5006F20FD /* ItemListCommonViewModelMock.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -409,11 +415,13 @@
 			files = (
 				D3F97B821F4F0EC4006F20FD /* Item.swift in Sources */,
 				D379F0FC1F532BB700B3393B /* Signal.swift in Sources */,
+				D379F1021F5422C300B3393B /* ItemListReloadViewModel.swift in Sources */,
 				D3F97B8B1F4F17A4006F20FD /* BackendClientMoya.swift in Sources */,
 				D3F97B961F5018B0006F20FD /* ItemListChangesetViewModel.swift in Sources */,
 				D3F97B871F4F143E006F20FD /* BackendClient.swift in Sources */,
 				D3F97B891F4F151E006F20FD /* MoyaDummyService.swift in Sources */,
 				D3F97B981F5018EA006F20FD /* ItemListCellViewModel.swift in Sources */,
+				D379F1041F54240700B3393B /* ItemListCommonViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -422,8 +430,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3F97B351F4EF422006F20FD /* RCMVVMSampleLibTests.swift in Sources */,
-				D3F97BA01F50395C006F20FD /* ItemListChangesetViewModelTests.swift in Sources */,
-				D3F97BA41F503BE5006F20FD /* ItemListChangesetViewModelMock.swift in Sources */,
+				D3F97BA01F50395C006F20FD /* ItemListCommonViewModelTests.swift in Sources */,
+				D3F97BA41F503BE5006F20FD /* ItemListCommonViewModelMock.swift in Sources */,
 				D3F97B9F1F50395C006F20FD /* BackendClientMoyaTests.swift in Sources */,
 				D3F97BA21F5039B3006F20FD /* BackendClientMock.swift in Sources */,
 			);

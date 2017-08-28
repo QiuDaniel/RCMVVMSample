@@ -11,32 +11,19 @@ import Changeset
 import ReactiveSwift
 import Result
 
-public enum ItemListChangesetViewModelError: Error {
-	case ItemListChangesetViewModelGeneral
-}
-
 public typealias AddItemAction = Action<ItemListCellViewModel, Void, NoError>
-public typealias LoadItemsAction = Action<String?, Void, ItemListChangesetViewModelError>
 public typealias ItemsChangeset = [Edit<ItemListCellViewModel>]
 
-public class ItemListChangesetViewModel {
-	
-	// Backend Client (Injected)
-	let backendClient: BackendClient
+public class ItemListChangesetViewModel: ItemListCommonViewModel {
 	
 	// Action (with condition) Example
 	public let addItemCondition: MutableProperty<Bool> = MutableProperty(false)
 	public var addItemAction: AddItemAction! = nil
 	
-	public var loadItemsAction: LoadItemsAction! = nil
-	
-	// Serach String
-	public var searchString: MutableProperty<String?> = MutableProperty("")
-	
 	// Model Changeset
 	public let itemsChangeset = MutableProperty(ItemsChangeset())
 	// Model
-	private var items: [ItemListCellViewModel] = [] {
+	override var items: [ItemListCellViewModel] {
 		didSet {
 			itemsChangeset.value = Changeset.edits(from: oldValue, to: items)
 		}
@@ -44,57 +31,24 @@ public class ItemListChangesetViewModel {
 	
 	// MARK: - Inits
 	
-	init(withBackendClient backendClient: BackendClient) {
+	override init(withBackendClient backendClient: BackendClient) {
 		
-		self.backendClient = backendClient
+		super.init(withBackendClient: backendClient)
 		
-		//ReactiveSwift Action with a ItemListCellViewModel as Input
+		//ReactiveSwift Action to add an item
 		self.addItemAction = AddItemAction(enabledIf: addItemCondition) { (item: ItemListCellViewModel) in
 			return SignalProducer { [weak self] observer, lifetime in
-				//self?.items.insert(item, at: 0)
 				self?.backendClient.addItem(item.item)
 				observer.sendCompleted()
 			}
 		}
 		
-		self.loadItemsAction = LoadItemsAction() { searchString in
-			return self.loadItems(searchString: searchString)
-		}
-		
-		self.loadItemsAction <~ self.addItemAction.completed.rcmvvms_replaceValue(searchString.value, ofType: String?.self)
-		self.loadItemsAction <~ self.searchString.signal
-			/*.throttle(1, on: QueueScheduler())
-			.filter { $0.characters.count >= 3 }*/
+		self.loadItemsAction <~ self.addItemAction.completed
 		
 	}
 	
 	public convenience init() {
 		self.init(withBackendClient: BackendClientMoya())
-	}
-	
-	// MARK: - Public methods
-	
-	public func getItemsCount() -> Int {
-		return items.count
-	}
-	
-	public func getItemViewModel(forIndex index: Int) -> ItemListCellViewModel {
-		return items[index]
-	}
-	
-	// MARK: - Private methods
-	
-	func loadItems(searchString: String?) -> SignalProducer<Void, ItemListChangesetViewModelError> {
-		return backendClient.getItems(withSearchString: searchString).map { [weak self] (items) -> Void in
-			self?.handleNewItems(items: items)
-		}.mapError({ (error:BackendClientError) -> ItemListChangesetViewModelError in
-			/* Manage and transform the error here */
-			return .ItemListChangesetViewModelGeneral
-		})
-	}
-
-	func handleNewItems(items:[Item]) {
-		self.items = items.map { ItemListCellViewModel(withItem: $0) }
 	}
 	
 }

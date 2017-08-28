@@ -30,7 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 			for vc in cleanvcs {
 				switch vc {
 				case let changesetVC as ItemListChangesetTableViewController:
-					changesetVC.viewModel = ItemListChangesetViewModel()
+					changesetVC.viewModelChangeset = ItemListChangesetViewModel()
+				case let datasourceVC as ItemListReloadTableViewController:
+					datasourceVC.viewModelReload = ItemListReloadViewModel()
 				default: break
 				}
 			}

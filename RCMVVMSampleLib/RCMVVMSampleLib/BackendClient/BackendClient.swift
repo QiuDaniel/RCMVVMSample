@@ -10,7 +10,7 @@ import Foundation
 import ReactiveSwift
 
 enum BackendClientError: Error {
-	case BackendClientGeneral
+	case BackendClientErrorGeneral
 }
 
 typealias BackendClientGetItemsResponse = SignalProducer<[Item], BackendClientError>

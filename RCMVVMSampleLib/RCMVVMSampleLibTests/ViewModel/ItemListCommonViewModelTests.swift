@@ -10,7 +10,7 @@ import XCTest
 import ReactiveSwift
 @testable import RCMVVMSampleLib
 
-class ItemListChangesetViewModelTests: XCTestCase {
+class ItemListCommonViewModelTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
@@ -35,7 +35,7 @@ class ItemListChangesetViewModelTests: XCTestCase {
 			return BackendClientGetItemsResponse(value: expectedItems)
 		}
 		
-		let ilcvm = ItemListChangesetViewModelMock(withBackendClient: bc)
+		let ilcvm = ItemListCommonViewModelMock(withBackendClient: bc)
 		ilcvm.handleNewItemsClosure = { items in
 			XCTAssertEqual(items, expectedItems)
 			hniEx.fulfill()
@@ -52,16 +52,16 @@ class ItemListChangesetViewModelTests: XCTestCase {
 	func testLoadItemsError() {
 		
 		let expectedSearchString = "test"
-		let expectedError = ItemListChangesetViewModelError.ItemListChangesetViewModelGeneral
+		let expectedError = ItemListViewModelError.ItemListViewModelErrorGeneral
 		let eEx = expectation(description: "e")
 		
 		let bc = BackendClientMock()
 		bc.getItemsClosure = { searchString in
 			XCTAssertEqual(searchString, expectedSearchString)
-			return BackendClientGetItemsResponse(error: BackendClientError.BackendClientGeneral)
+			return BackendClientGetItemsResponse(error: BackendClientError.BackendClientErrorGeneral)
 		}
 		
-		let ilcvm = ItemListChangesetViewModelMock(withBackendClient: bc)
+		let ilcvm = ItemListCommonViewModelMock(withBackendClient: bc)
 		ilcvm.handleNewItemsClosure = { items in
 			XCTFail()
 		}

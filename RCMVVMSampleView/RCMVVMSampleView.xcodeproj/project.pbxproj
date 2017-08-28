@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		30D6ADF16608B26EA2768902 /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6697447C3ACDB55861B32C4A /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework */; };
+		D379F1001F5422A400B3393B /* ItemListReloadTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379F0FF1F5422A400B3393B /* ItemListReloadTableViewController.swift */; };
+		D379F1061F542B4F00B3393B /* ItemListCommonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D379F1051F542B4F00B3393B /* ItemListCommonTableViewController.swift */; };
 		D3F97B4D1F4EF531006F20FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F97B4C1F4EF531006F20FD /* AppDelegate.swift */; };
 		D3F97B521F4EF531006F20FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B501F4EF531006F20FD /* Main.storyboard */; };
 		D3F97B541F4EF531006F20FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D3F97B531F4EF531006F20FD /* Assets.xcassets */; };
@@ -40,6 +42,8 @@
 /* Begin PBXFileReference section */
 		6697447C3ACDB55861B32C4A /* Pods_RCMVVMSampleLib_RCMVVMSampleView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RCMVVMSampleLib_RCMVVMSampleView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83729018D58DA2923EFDAADC /* Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig"; path = "../Pods/Target Support Files/Pods-RCMVVMSampleLib-RCMVVMSampleView/Pods-RCMVVMSampleLib-RCMVVMSampleView.release.xcconfig"; sourceTree = "<group>"; };
+		D379F0FF1F5422A400B3393B /* ItemListReloadTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListReloadTableViewController.swift; sourceTree = "<group>"; };
+		D379F1051F542B4F00B3393B /* ItemListCommonTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemListCommonTableViewController.swift; sourceTree = "<group>"; };
 		D3F97B491F4EF531006F20FD /* RCMVVMSampleView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RCMVVMSampleView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3F97B4C1F4EF531006F20FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3F97B511F4EF531006F20FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,7 +136,9 @@
 				D3F97B831F4F1069006F20FD /* Resources */,
 				D3F97B4C1F4EF531006F20FD /* AppDelegate.swift */,
 				D3F97BA71F506519006F20FD /* ItemTableViewCell.swift */,
+				D379F1051F542B4F00B3393B /* ItemListCommonTableViewController.swift */,
 				D3F97BA51F504682006F20FD /* ItemListChangesetTableViewController.swift */,
+				D379F0FF1F5422A400B3393B /* ItemListReloadTableViewController.swift */,
 				D3F97B501F4EF531006F20FD /* Main.storyboard */,
 				D3F97B531F4EF531006F20FD /* Assets.xcassets */,
 				D3F97B551F4EF531006F20FD /* LaunchScreen.storyboard */,
@@ -357,7 +363,9 @@
 			files = (
 				D3F97B4D1F4EF531006F20FD /* AppDelegate.swift in Sources */,
 				D3F97BA81F506519006F20FD /* ItemTableViewCell.swift in Sources */,
+				D379F1061F542B4F00B3393B /* ItemListCommonTableViewController.swift in Sources */,
 				D3F97BA61F504682006F20FD /* ItemListChangesetTableViewController.swift in Sources */,
+				D379F1001F5422A400B3393B /* ItemListReloadTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

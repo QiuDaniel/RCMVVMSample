@@ -45,7 +45,7 @@ class BackendClientMoya: BackendClient {
 			.mapArray(Item.self)
 			.mapError { moyaError in
 				/* Handle and transform errors here */
-				return BackendClientError.BackendClientGeneral
+				return BackendClientError.BackendClientErrorGeneral
 		}
 		
 	}
