@@ -6,10 +6,11 @@ This is the result and I hope it is useful for someone else.
 
 ## Used libraries
 
-* [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) 2.0 & [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 6.0
+* [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) 2.0 
+* [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 6.0 ([Pull request](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/3504))
 * [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) 2.2
 * [Moya](https://github.com/Moya/Moya/releases) 9.0
-* [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper) 2.3
+* [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper) 2.3 ([Pull request](https://github.com/ivanbruel/Moya-ObjectMapper/pull/66))
 * [Changeset](https://github.com/osteslag/Changeset) 2.1
 
 ## Quick Start
