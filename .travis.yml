@@ -1,11 +1,5 @@
 language: swift
 osx_image: xcode8.3
 
-before_install:
-  - brew update
-  - brew outdated xctool || brew upgrade xctool
-
-xcode_workspace: RCMVVMSample.xcworkspace
-xcode_scheme: RCMVVMSampleLibTests
-    
-xcode_sdk: iphonesimulator10.3
+script:
+    - xcodebuild -workspace RCMVVMSample.xcworkspace -scheme RCMVVMSampleLibTests -destination 'platform=iOS Simulator,name=iPhone 7' test
