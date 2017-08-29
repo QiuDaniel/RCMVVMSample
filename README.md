@@ -1,8 +1,8 @@
 # MVVM ReactiveSwift/ReactiveCocoa Swift Sample App
 
-Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see References) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming building an iOS app.
+![Swift 3.1.x](https://img.shields.io/badge/Swift-3.1.x-orange.svg) ![iOS 10.3.x](https://img.shields.io/badge/iOS-10.3.x-orange.svg) [![Build Status](https://travis-ci.org/albsala/RCMVVMSample.svg?branch=master)](https://travis-ci.org/albsala/RCMVVMSample)
 
-This is the result and I hope it is useful for someone else.
+Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see References) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming building an iOS app. I hope it is useful for somebody else.
 
 ## Used libraries
 
@@ -14,8 +14,9 @@ This is the result and I hope it is useful for someone else.
 * [Changeset](https://github.com/osteslag/Changeset) 2.1
 
 ## Quick Start
-Clone/Download the sample app, open `RCMVVMSample.xcworkspace` and run the RCMVVMSampleView schema. Dependencies are included for simplicity.
-Check `RCMVVMSampleView` ViewControllers, and `RCMVVMSampleLib` ViewModels and BackendClient.
+Just clone/download the sample app, open `RCMVVMSample.xcworkspace` and run the RCMVVMSampleView schema. Dependencies are included for simplicity.
+
+Check `RCMVVMSampleView` ViewControllers, `RCMVVMSampleLib` ViewModels and BackendClient, and `RCMVVMSampleLibTests`.
 
 ## App functionality
 
@@ -36,6 +37,10 @@ There is a workspace with three projects:
 * Actions and CocoaActions
 * Bindings of actions, properties and UI controls
 
+## Back-end
+
+App uses [Moya](https://github.com/Moya/Moya/releases) and stubs responses (`itemsResponse.json`) so you do not have to worry about the Back-end.
+
 ## Testing
 
 You can find some unit test in the `RCMVVMSampleLibTests` target that show how to test methods that use ReactiveSwift. It helped me a lot to understand Signals and SignalProducers. You should check them out even though you are not interested in unit testing.
@@ -44,6 +49,7 @@ You can find some unit test in the `RCMVVMSampleLibTests` target that show how t
 
 * Check retain cycles
 * Some navigation
+* RCMVVMSampleView testing
 
 
 ## References
