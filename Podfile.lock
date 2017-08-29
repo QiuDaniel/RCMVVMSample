@@ -48,7 +48,7 @@ CHECKOUT OPTIONS:
     :commit: d2c71b66ca341d68eab06a96a7944a6a9cbaa702
     :git: https://github.com/albsala/Moya-ObjectMapper.git
   ReactiveCocoa:
-    :commit: f00bc611c1f256dc3f97c743817020cd1a558c8f
+    :commit: 5dd7c69657b6d729ed857b201c6a978931176202
     :git: https://github.com/albsala/ReactiveCocoa.git
 
 SPEC CHECKSUMS:
