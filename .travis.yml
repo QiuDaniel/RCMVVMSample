@@ -1,0 +1,6 @@
+language: swift
+osx_image: xcode8.3
+
+script:
+    - xcodebuild -workspace RCMVVMSample.xcworkspace -scheme RCMVVMSampleLibTests -destination 'platform=iOS Simulator,name=iPhone 7' test
+    - xcodebuild -workspace RCMVVMSample.xcworkspace -scheme RCMVVMSampleViewTests -destination 'platform=iOS Simulator,name=iPhone 7' test
