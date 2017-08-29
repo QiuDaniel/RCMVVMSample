@@ -7,9 +7,7 @@ before_install:
   - brew outdated xctool || brew upgrade xctool
 
 xcode_workspace: RCMVVMSample.xcworkspace
-xcode_scheme: 
-    - RCMVVMSampleLibTests
-    - RCMVVMSampleViewTests
+xcode_scheme: RCMVVMSampleLibTests
 
 branches:
   only:
