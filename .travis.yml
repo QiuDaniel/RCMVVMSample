@@ -1,6 +1,5 @@
 language: swift
 osx_image: xcode8.3
-xcode_sdk: iphonesimulator10.3
 
 before_install:
   - brew update
@@ -8,7 +7,5 @@ before_install:
 
 xcode_workspace: RCMVVMSample.xcworkspace
 xcode_scheme: RCMVVMSampleLibTests
-
-branches:
-  only:
-    - travis
+    
+xcode_sdk: iphonesimulator10.3
