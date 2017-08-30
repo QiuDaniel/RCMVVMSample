@@ -36,6 +36,7 @@ There is a workspace with three projects:
 * MutableProperties
 * Actions and CocoaActions
 * Bindings of actions, properties and UI controls
+* Error Handling
 
 ## Back-end
 
