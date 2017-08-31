@@ -1,8 +1,8 @@
-# MVVM ReactiveSwift/ReactiveCocoa Swift Sample App
+# Framework-based MVVM ReactiveSwift/ReactiveCocoa iOS Sample App
 
 ![Swift 3.1.x](https://img.shields.io/badge/Swift-3.1.x-orange.svg) ![iOS 10.3.x](https://img.shields.io/badge/iOS-10.3.x-orange.svg) [![Build Status](https://travis-ci.org/albsala/RCMVVMSample.svg?branch=master)](https://travis-ci.org/albsala/RCMVVMSample)
 
-Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see References) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming building an iOS app. I hope it is useful for somebody else.
+Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see References) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming to build an iOS app. I hope it is useful for somebody else.
 
 ## Used libraries
 
@@ -26,8 +26,8 @@ The app shows a UITabBarController with **two UITableViewControllers using two d
 There is a workspace with three projects: 
 
 * `Pods`: Cocoapods project
-* `RCMVVMSampleLib`: Model-ViewModels and BackendClient. This is where backend client, business and viewmodels logic goes. It can be shared and tested easier and quicker since it has no host application.
-* `RCMVVMSampleView`: View. This is where only view-code goes.
+* `RCMVVMSampleLib`: ViewModels and BackendClient. *Since the main purpose of the project is showing how ReactiveSwift/ReactiveCocoa can be used to build a "real" app, there is only one framework for everything but the iOS View layer. Check [Framework Oriented Programming](http://frameworkoriented.io) if you need further information.*
+* `RCMVVMSampleView`: MVVM's iOS View.
 
 ## ReactiveSwift/ReactiveCocoa features used/shown
 
