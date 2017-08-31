@@ -2,7 +2,7 @@
 
 ![Swift 3.1.x](https://img.shields.io/badge/Swift-3.1.x-orange.svg) ![iOS 10.3.x](https://img.shields.io/badge/iOS-10.3.x-orange.svg) [![Build Status](https://travis-ci.org/albsala/RCMVVMSample.svg?branch=master)](https://travis-ci.org/albsala/RCMVVMSample)
 
-Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see References) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming to build an iOS app. I hope it is useful for somebody else.
+Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see [References](#references)) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming to build an iOS app. I hope it is useful for somebody else.
 
 ## Used libraries
 
@@ -14,7 +14,7 @@ Given the lack of documentation about how to build a real app using ReactiveSwif
 * [Changeset](https://github.com/osteslag/Changeset) 2.1
 
 ## Quick Start
-Just clone/download the sample app, open `RCMVVMSample.xcworkspace` and run the RCMVVMSampleView schema. Dependencies are included for simplicity.
+Just clone/download the sample app, open `RCMVVMSample.xcworkspace` with Xcode and run the RCMVVMSampleView schema. Dependencies are included for simplicity.
 
 Check `RCMVVMSampleView` ViewControllers, `RCMVVMSampleLib` ViewModels and BackendClient, and `RCMVVMSampleLibTests`.
 
@@ -26,7 +26,7 @@ The app shows a UITabBarController with **two UITableViewControllers using two d
 There is a workspace with three projects: 
 
 * `Pods`: Cocoapods project
-* `RCMVVMSampleLib`: ViewModels and BackendClient. *Since the main purpose of the project is showing how ReactiveSwift/ReactiveCocoa can be used to build a "real" app, there is only one framework for everything but the iOS View layer. Check [Framework Oriented Programming](http://frameworkoriented.io) if you need further information.*
+* `RCMVVMSampleLib`: MVVM's ViewModels and BackendClient. *Since the main purpose of the project is showing how ReactiveSwift/ReactiveCocoa can be used to build a "real" app, there is only one framework for everything but the iOS View layer. Check [Framework Oriented Programming](http://frameworkoriented.io) if you need further information.*
 * `RCMVVMSampleView`: MVVM's iOS View.
 
 ## ReactiveSwift/ReactiveCocoa features used/shown
@@ -40,7 +40,7 @@ There is a workspace with three projects:
 
 ## Back-end
 
-App uses [Moya](https://github.com/Moya/Moya/releases) and stubs responses (`itemsResponse.json`) so you do not have to worry about the Back-end.
+The app uses [Moya](https://github.com/Moya/Moya/releases) and stubs responses (`itemsResponse.json`) so you do not have to worry about the Back-end.
 
 ## Testing
 
