@@ -8,8 +8,8 @@
 
 import XCTest
 @testable import RCMVVMSampleLib
-import ObjectMapper
 import ReactiveSwift
+import Moya
 
 class BackendClientMoyaTests: XCTestCase {
     
@@ -23,48 +23,32 @@ class BackendClientMoyaTests: XCTestCase {
         super.tearDown()
     }
 	
-	func testGetItemsMoya() {
+	func testHandleItemsRequest_value() {
 		
 		let itemsData = MoyaDummyServiceUtil.items
-		guard let expedtedJson = String(data: itemsData, encoding: .utf8),
-			let expectedValue = Mapper<Item>().mapArray(JSONString: expedtedJson) else {
-				XCTFail()
-				return
+		let jsonDecoder = JSONDecoder()
+		guard let expectedValue = try? jsonDecoder.decode([Item].self, from: itemsData) else {
+			XCTFail()
+			return
 		}
 		
 		let bcms = BackendClientMoya()
 		
-		var exItems = expectation(description: "Items")
-		var exCompleted = expectation(description: "Completed")
+		let exItems = expectation(description: "Items")
+		let exCompleted = expectation(description: "Completed")
 		
-		bcms.getItemsMoya().start({ result in
+		let response = Response(statusCode: 200, data: itemsData)
+		let sp = SignalProducer<Response, MoyaError>(value:response)
+		
+		bcms.handleItemsRequest(sp).start({ result in
 			switch result {
 			case let .value(value):
 				XCTAssertEqual(value, expectedValue)
 				exItems.fulfill()
 			case .completed:
 				exCompleted.fulfill()
-			case let .failed(error):
-				print(error)
-			default:
-				break
-			}
-		})
-		
-		waitForExpectations(timeout: 1, handler: nil)
-		
-		exItems = expectation(description: "Items")
-		exCompleted = expectation(description: "Completed")
-		
-		bcms.getItemsMoya(withSearchString: "testString").start({ result in
-			switch result {
-			case let .value(value):
-				XCTAssertEqual(value, expectedValue)
-				exItems.fulfill()
-			case .completed:
-				exCompleted.fulfill()
-			case let .failed(error):
-				print(error)
+			case .failed:
+				XCTFail()
 			default:
 				break
 			}
@@ -74,50 +58,52 @@ class BackendClientMoyaTests: XCTestCase {
 		
 	}
 	
-	func testGetItems() {
+	func testHandleItemsRequest_error() {
 		
-		let itemsData = [Item(reference: "1", name: "abcdef"), Item(reference: "2", name: "ghijkl")]
-		let bc = BackendClientMock()
-		bc.getItemsMoyaClosure = { _ in return BackendClientGetItemsResponse(value: itemsData) }
+		let bcms = BackendClientMoya()
+		let exItems = expectation(description: "Items")
+		let expectedError = BackendClientError.BackendClientErrorGeneral
+		let sp = SignalProducer<Response, MoyaError>(error:MoyaError.requestMapping(""))
 		
-		var exItems = expectation(description: "Items")
-		var exCompleted = expectation(description: "Completed")
-		
-		bc.getItems(withSearchString: "BC").start { event in
-			switch event {
-			case let .value(value):
-				XCTAssertEqual(value, [itemsData[0]])
+		bcms.handleItemsRequest(sp).start({ result in
+			switch result {
+			case let .failed(error):
 				exItems.fulfill()
-			case .completed:
-				exCompleted.fulfill()
+				XCTAssertEqual(error, expectedError)
 			default:
-				break
+				XCTFail()
 			}
-		}
-		
-		waitForExpectations(timeout: 1, handler: nil)
-		
-		exItems = expectation(description: "Items")
-		exCompleted = expectation(description: "Completed")
-		
-		bc.getItems(withSearchString: "JK").start { event in
-			switch event {
-			case let .value(value):
-				XCTAssertEqual(value, [itemsData[1]])
-				exItems.fulfill()
-			case .completed:
-				exCompleted.fulfill()
-			default:
-				break
-			}
-		}
+		})
 		
 		waitForExpectations(timeout: 1, handler: nil)
 		
 	}
 	
-	func testAddItemToJSONData() {
-		//TODO
+	func testGetItems_withSearchString() {
+		
+		let expectedValue = [Item(reference: "1", name: "abcdef"), Item(reference: "2", name: "ghijkl")]
+		let bcm = BackendClientMock()
+		bcm.getItemsMoyaClosure = { _ in return BackendClientGetItemsResponse(value: expectedValue) }
+		
+		let exItems = expectation(description: "Items")
+		let exCompleted = expectation(description: "Completed")
+		
+		bcm.getItems(withSearchString: "JK").start { event in
+			switch event {
+			case let .value(value):
+				XCTAssertEqual(value, [expectedValue[1]])
+				exItems.fulfill()
+			case .completed:
+				exCompleted.fulfill()
+			case .failed:
+				XCTFail()
+			default:
+				break
+			}
+		}
+		
+		waitForExpectations(timeout: 1, handler: nil)
+		
 	}
 	
 }
