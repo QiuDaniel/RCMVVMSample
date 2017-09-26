@@ -1,17 +1,16 @@
 # Framework-based MVVM ReactiveSwift/ReactiveCocoa iOS Sample App
 
-![Swift 3.1.x](https://img.shields.io/badge/Swift-3.1.x-orange.svg) ![iOS 10.3.x](https://img.shields.io/badge/iOS-10.3.x-orange.svg) [![Build Status](https://travis-ci.org/albsala/RCMVVMSample.svg?branch=master)](https://travis-ci.org/albsala/RCMVVMSample)
+![Swift 4.0](https://img.shields.io/badge/Swift-4.0-orange.svg) ![iOS 10.3.x](https://img.shields.io/badge/iOS-10.3.x-orange.svg) [![Build Status](https://travis-ci.org/albsala/RCMVVMSample.svg?branch=master)](https://travis-ci.org/albsala/RCMVVMSample)
 
 Given the lack of documentation about how to build a real app using ReactiveSwift/ReactiveCocoa, I decided to try them out by myself, putting different pieces together. I found some articles (see [References](#references)) about very specific and isolated features of the libraries and how to use them to implement the [Model-View-ViewModel (MVVM) Pattern](https://en.wikipedia.org/wiki/Model–view–viewmodel). Nonetheless, I was not only interested in knowing how to use them to comunicate Views and ViewModels, but also how far I could get using reactive programming to build an iOS app. I hope it is useful for somebody else.
 
 ## Used libraries
 
-* [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) 2.0 
-* [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 6.0 ([Pull request](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/3504))
-* [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper) 2.2
+* [ReactiveSwift](https://github.com/ReactiveCocoa/ReactiveSwift) 2.1.0-alpha.2 
+* [ReactiveCocoa](https://github.com/ReactiveCocoa/ReactiveCocoa) 6.1.0-alpha.2 ([Pull request](https://github.com/ReactiveCocoa/ReactiveCocoa/pull/3504)) Set manually to Swift 3.2
 * [Moya](https://github.com/Moya/Moya/releases) 9.0
-* [Moya-ObjectMapper](https://github.com/ivanbruel/Moya-ObjectMapper) 2.3 ([Pull request](https://github.com/ivanbruel/Moya-ObjectMapper/pull/66))
 * [Changeset](https://github.com/osteslag/Changeset) 2.1
+* <s>ObjectMapper, Moya-ObjectMapper</s> [Swift Encoding and Decoding](https://developer.apple.com/documentation/foundation/archives_and_serialization/encoding_and_decoding_custom_types)
 
 ## Quick Start
 Just clone/download the sample app, open `RCMVVMSample.xcworkspace` with Xcode and run the RCMVVMSampleView schema. Dependencies are included for simplicity.
@@ -32,7 +31,7 @@ There is a workspace with three projects:
 ## ReactiveSwift/ReactiveCocoa features used/shown
 
 * Signal and SignalProducer creation, subscription (observation) and extension
-* Map, filter, flatten, collect, retry, throttle
+* Map, attemptMap, mapError, filter, flatten, collect, retry, throttle
 * MutableProperties
 * Actions and CocoaActions
 * Bindings of actions, properties and UI controls
