@@ -30,7 +30,7 @@ extension MoyaDummyService: TargetType {
 	}
 	var parameterEncoding: ParameterEncoding { return URLEncoding.default }
 	var sampleData: Data { return MoyaDummyServiceUtil.items }
-	var task: Task { return .request }
+	var task: Task { return Task.requestPlain }
 	var headers: [String: String]? { return ["Content-type": "application/json"] }
 }
 

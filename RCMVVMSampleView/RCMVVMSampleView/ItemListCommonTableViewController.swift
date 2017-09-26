@@ -47,8 +47,8 @@ class ItemListCommonTableViewController: UITableViewController {
 	
 	// Bind Errors
 	func bindErrors(_ loadItemsAction: LoadItemsAction) {
-		loadItemsAction.errors.observeValues { [unowned self] error in
-			self.showViewModelError(error)
+		loadItemsAction.errors.observeValues { [weak self] error in
+			self?.showViewModelError(error)
 		}
 	}
 	

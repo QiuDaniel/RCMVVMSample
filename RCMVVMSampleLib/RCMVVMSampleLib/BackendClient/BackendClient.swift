@@ -22,3 +22,10 @@ protocol BackendClient {
 	func addItem(_ item: Item)
 	
 }
+
+class BackendClientFactory {
+	
+	static func getDefaultImpl() -> BackendClient {
+		return BackendClientMoya()
+	}
+}

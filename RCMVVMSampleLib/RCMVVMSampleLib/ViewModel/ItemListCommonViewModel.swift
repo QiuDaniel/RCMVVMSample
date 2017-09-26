@@ -62,7 +62,7 @@ public class ItemListCommonViewModel {
 	}
 	
 	public convenience init() {
-		self.init(withBackendClient: BackendClientMoya())
+		self.init(withBackendClient: BackendClientFactory.getDefaultImpl())
 	}
 	
 	// MARK: - Public methods

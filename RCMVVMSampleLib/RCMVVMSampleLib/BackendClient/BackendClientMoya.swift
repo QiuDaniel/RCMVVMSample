@@ -8,20 +8,23 @@
 
 import Foundation
 import ReactiveSwift
+import Result
 import Moya
-import Moya_ObjectMapper
-import ObjectMapper
 
 class BackendClientMoya: BackendClient {
 	
 	let provider: MoyaProvider<MoyaDummyService>
+	let jsonDecoder: JSONDecoder
+	let jsonEncoder: JSONEncoder
 	
-	init(withMoyaProvider moyaProvider:MoyaProvider<MoyaDummyService>) {
+	init(withMoyaProvider moyaProvider:MoyaProvider<MoyaDummyService>, jsonDecoder: JSONDecoder, jsonEncoder: JSONEncoder) {
 		self.provider = moyaProvider
+		self.jsonDecoder = jsonDecoder
+		self.jsonEncoder = jsonEncoder
 	}
 	
 	convenience init() {
-		self.init(withMoyaProvider: MoyaProvider<MoyaDummyService>(stubClosure: MoyaProvider.immediatelyStub))
+		self.init(withMoyaProvider: MoyaProvider<MoyaDummyService>(stubClosure: MoyaProvider.immediatelyStub), jsonDecoder: JSONDecoder(), jsonEncoder: JSONEncoder())
 	}
 	
 	func getItems(withSearchString searchString: String? = nil) -> BackendClientGetItemsResponse {
@@ -41,13 +44,21 @@ class BackendClientMoya: BackendClient {
 	
 	func getItemsMoya(withSearchString searchString: String? = nil) -> BackendClientGetItemsResponse {
 		
-		return provider.reactive.request(.getItems(searchString: searchString)).retry(upTo: 3)
-			.mapArray(Item.self)
-			.mapError { moyaError in
+		let moyaRequest = provider.reactive.request(.getItems(searchString: searchString)).retry(upTo: 3)
+		return handleItemsRequest(moyaRequest)
+		
+	}
+	
+	func handleItemsRequest(_ itemsRequest:SignalProducer<Response, MoyaError>) -> BackendClientGetItemsResponse {
+		return itemsRequest
+			.mapError { moyaError in // I want to use "attemptMap" (where Error == AnyError)
+				return AnyError(moyaError)
+			}.attemptMap{ response in
+				return try self.jsonDecoder.decode([Item].self, from: response.data)
+			}.mapError { anyError in
 				/* Handle and transform errors here */
 				return BackendClientError.BackendClientErrorGeneral
-		}
-		
+			}
 	}
 	
 	func addItem(_ item: Item) {
@@ -59,11 +70,9 @@ class BackendClientMoya: BackendClient {
 	}
 	
 	func addItem(_ item: Item, toJSONData jsonData: Data, withEncoding encoding: String.Encoding) -> Data {
-		var JSONString = String(data: jsonData, encoding: encoding)!
-		var items = Mapper<Item>().mapArray(JSONString: JSONString)!
+		var items = try! jsonDecoder.decode([Item].self, from: jsonData)
 		items.insert(item, at: 0)
-		JSONString = items.toJSONString()!
-		return JSONString.data(using: encoding)!
+		return try! jsonEncoder.encode(items)
 	}
 	
 }

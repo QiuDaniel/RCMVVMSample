@@ -7,9 +7,8 @@
 //
 
 import Foundation
-import ObjectMapper
 
-class Item: Equatable, Mappable {
+class Item: Codable {
     var reference: String!
     var name: String!
     var description: String?
@@ -19,22 +18,22 @@ class Item: Equatable, Mappable {
         self.name = name
         self.description = description
     }
-    
-    // MARK: - Equatable Protocol
-    
-    static func == (lhs: Item, rhs: Item) -> Bool {
-        return lhs.reference == rhs.reference && lhs.name == rhs.name && lhs.description == rhs.description
-    }
-    
-    // MARK: - Mappable (ObjectMapper) Protocol
-    
-    required init?(map: Map) {
-        
-    }
-    
-    func mapping(map: Map) {
-        reference   <- map["ref"]
-        name        <- map["name"]
-        description <- map["desc"]
-    }
+	
+	// MARK: - Codable Protocol
+	
+	private enum CodingKeys : String, CodingKey {
+		case reference = "ref"
+		case name
+		case description = "desc"
+	}
+}
+
+extension Item: Equatable {
+	
+	// MARK: - Equatable Protocol
+	
+	static func == (lhs: Item, rhs: Item) -> Bool {
+		return lhs.reference == rhs.reference && lhs.name == rhs.name && lhs.description == rhs.description
+	}
+	
 }
