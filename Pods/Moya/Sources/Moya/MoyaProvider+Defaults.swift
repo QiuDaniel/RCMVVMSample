@@ -1,5 +1,4 @@
 import Foundation
-import Alamofire
 
 /// These functions are default mappings to `MoyaProvider`'s properties: endpoints, requests, manager, etc.
 public extension MoyaProvider {
@@ -8,8 +7,7 @@ public extension MoyaProvider {
             url: URL(target: target).absoluteString,
             sampleResponseClosure: { .networkResponse(200, target.sampleData) },
             method: target.method,
-            parameters: target.parameters,
-            parameterEncoding: target.parameterEncoding,
+            task: target.task,
             httpHeaderFields: target.headers
         )
     }

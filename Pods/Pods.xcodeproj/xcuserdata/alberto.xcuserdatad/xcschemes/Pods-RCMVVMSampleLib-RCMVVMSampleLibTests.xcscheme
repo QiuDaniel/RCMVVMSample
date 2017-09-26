@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D243FEC47BF798C50E46535C43FF817"
+               BlueprintIdentifier = "8E92E767DF55A725CC74B91F9637B20F"
                BuildableName = "Pods_RCMVVMSampleLib_RCMVVMSampleLibTests.framework"
                BlueprintName = "Pods-RCMVVMSampleLib-RCMVVMSampleLibTests"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -26,6 +26,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
@@ -36,6 +37,7 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
+      language = ""
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
@@ -45,7 +47,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D243FEC47BF798C50E46535C43FF817"
+            BlueprintIdentifier = "8E92E767DF55A725CC74B91F9637B20F"
             BuildableName = "Pods_RCMVVMSampleLib_RCMVVMSampleLibTests.framework"
             BlueprintName = "Pods-RCMVVMSampleLib-RCMVVMSampleLibTests"
             ReferencedContainer = "container:Pods.xcodeproj">

@@ -1,67 +1,32 @@
 PODS:
-  - Alamofire (4.5.0)
+  - Alamofire (4.5.1)
   - Changeset (2.1.2)
-  - CocoaLumberjack/Default (3.2.1)
-  - CocoaLumberjack/Swift (3.2.1):
-    - CocoaLumberjack/Default
-  - Moya (9.0.0-alpha.1):
-    - Moya/Core (= 9.0.0-alpha.1)
-  - Moya-ObjectMapper/Core (2.3.2):
-    - Moya
-    - ObjectMapper (~> 2.2)
-  - Moya-ObjectMapper/ReactiveSwift (2.3.2):
-    - Moya-ObjectMapper/Core
-    - Moya/ReactiveSwift (~> 9.0.0-alpha.1)
-    - ReactiveSwift (~> 2.0)
-  - Moya/Core (9.0.0-alpha.1):
+  - Moya/Core (9.0.0):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
-  - Moya/ReactiveSwift (9.0.0-alpha.1):
+  - Moya/ReactiveSwift (9.0.0):
     - Moya/Core
     - ReactiveSwift (~> 2.0)
-  - ObjectMapper (2.2.8)
-  - ReactiveCocoa (6.0.1):
-    - ReactiveSwift (~> 2.0)
-  - ReactiveSwift (2.0.1):
+  - ReactiveCocoa (6.1.0-alpha.2):
+    - ReactiveSwift (= 2.1.0-alpha.2)
+  - ReactiveSwift (2.1.0-alpha.2):
     - Result (~> 3.2)
   - Result (3.2.3)
 
 DEPENDENCIES:
   - Changeset (~> 2.1)
-  - CocoaLumberjack/Swift (~> 3.2)
-  - Moya-ObjectMapper/ReactiveSwift (from `https://github.com/albsala/Moya-ObjectMapper.git`, branch `reactiveswift`)
-  - Moya/ReactiveSwift (~> 9.0.0-alpha.1)
-  - ObjectMapper (~> 2.2)
-  - ReactiveCocoa (from `https://github.com/albsala/ReactiveCocoa.git`, branch `uisearchbarcancelsignal`)
-  - ReactiveSwift (~> 2.0)
-
-EXTERNAL SOURCES:
-  Moya-ObjectMapper:
-    :branch: reactiveswift
-    :git: https://github.com/albsala/Moya-ObjectMapper.git
-  ReactiveCocoa:
-    :branch: uisearchbarcancelsignal
-    :git: https://github.com/albsala/ReactiveCocoa.git
-
-CHECKOUT OPTIONS:
-  Moya-ObjectMapper:
-    :commit: d2c71b66ca341d68eab06a96a7944a6a9cbaa702
-    :git: https://github.com/albsala/Moya-ObjectMapper.git
-  ReactiveCocoa:
-    :commit: 5dd7c69657b6d729ed857b201c6a978931176202
-    :git: https://github.com/albsala/ReactiveCocoa.git
+  - Moya/ReactiveSwift (~> 9.0.0)
+  - ReactiveCocoa (~> 6.1.0-alpha.2)
+  - ReactiveSwift (~> 2.1.0-alpha.2)
 
 SPEC CHECKSUMS:
-  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   Changeset: 58ffd3e157651f8aba3964bf723d4ed649d2071b
-  CocoaLumberjack: 2800c03334042fe80589423c8d80e582dcaec482
-  Moya: f2ce44cbd5e8be82b4761194420588b6b1aebf1e
-  Moya-ObjectMapper: 6796feb29c8a1761722b96ea5ffa6893b6e0c15b
-  ObjectMapper: 3d571bb5af471c779e1160828cd9ad5c4ef90958
-  ReactiveCocoa: b541c592b328e3b923f758e9ad87c8f2c7a9b79d
-  ReactiveSwift: 60a29ff35988a964fd2bb759755cb6594de523fc
+  Moya: cf5e6ee93af526532f92614004b8ad2ea60fd845
+  ReactiveCocoa: 6e9d1356ac1456cff179aa1402e5fcc71c9fc851
+  ReactiveSwift: 963e7f9c679e57576b0c91f78cb7481b4f9879e9
   Result: 128640a6347e8d2ae48b142556739a2d13f90ce6
 
-PODFILE CHECKSUM: 32be7dce550cbaea770093f4c4ccfce1993a4961
+PODFILE CHECKSUM: 74cb3490e463549726fd35160d46cbfa73c54675
 
 COCOAPODS: 1.2.1

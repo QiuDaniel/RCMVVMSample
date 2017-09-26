@@ -14,22 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>CocoaLumberjack.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Moya-ObjectMapper.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>Moya.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>ObjectMapper.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -66,67 +51,6 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict>
-		<key>138A631984361ACC9E0941B8AEDFA9F3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4C0ACB5C9F7B9A299C8DAF44924ADD75</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5EE90B2AE88D6DA8305A4E12CF93ED1B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6BCFE5D1B0133730215EC8FD19E327FE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6C0790A2F1B7C51B2E6AD180058302B4</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>88E9EC28B8B46C3631E6B242B50F4442</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>8D243FEC47BF798C50E46535C43FF817</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9709635CA61F7F72E71552ACC5E71EC3</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>A46C29535217229E4E155B9F3DA3AEA0</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C9163CAC5A00F450D4E4C1794E24E8F5</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>D757755DB7CD452749D418B621F90353</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DBB75A8AE5137AB9545F1F6DCC359E8D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-	</dict>
+	<dict/>
 </dict>
 </plist>

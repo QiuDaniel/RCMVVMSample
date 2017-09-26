@@ -1,5 +1,4 @@
 import Foundation
-import Alamofire
 
 /// The protocol used to define the specifications necessary for a `MoyaProvider`.
 public protocol TargetType {
@@ -12,12 +11,6 @@ public protocol TargetType {
 
     /// The HTTP method used in the request.
     var method: Moya.Method { get }
-
-    /// The parameters to be encoded in the request.
-    var parameters: [String: Any]? { get }
-
-    /// The method used for parameter encoding.
-    var parameterEncoding: ParameterEncoding { get }
 
     /// Provides stub data for use in testing.
     var sampleData: Data { get }
@@ -36,34 +29,4 @@ public extension TargetType {
     var validate: Bool {
         return false
     }
-}
-
-/// Represents a type of upload task.
-public enum UploadType {
-
-    /// Upload a file.
-    case file(URL)
-
-    /// Upload "multipart/form-data"
-    case multipart([MultipartFormData])
-}
-
-/// Represents a type of download task.
-public enum DownloadType {
-
-    /// Download a file to a destination.
-    case request(DownloadDestination)
-}
-
-/// Represents an HTTP task.
-public enum Task {
-
-    /// A basic request task.
-    case request
-
-    /// An upload task.
-    case upload(UploadType)
-
-    /// A download task.
-    case download(DownloadType)
 }
