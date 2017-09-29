@@ -9,8 +9,8 @@
 import Foundation
 
 class Item: Codable {
-    var reference: String!
-    var name: String!
+    var reference: String
+    var name: String
     var description: String?
     
     init(reference: String, name: String, description:String? = nil) {

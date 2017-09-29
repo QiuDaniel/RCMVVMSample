@@ -49,16 +49,19 @@ class BackendClientMoya: BackendClient {
 		
 	}
 	
+	//Testable
 	func handleItemsRequest(_ itemsRequest:SignalProducer<Response, MoyaError>) -> BackendClientGetItemsResponse {
+		
 		return itemsRequest
 			.mapError { moyaError in // I want to use "attemptMap" (where Error == AnyError)
 				return AnyError(moyaError)
-			}.attemptMap{ response in
+			}.attemptMap { response in
 				return try self.jsonDecoder.decode([Item].self, from: response.data)
 			}.mapError { anyError in
 				/* Handle and transform errors here */
 				return BackendClientError.BackendClientErrorGeneral
 			}
+		
 	}
 	
 	func addItem(_ item: Item) {
